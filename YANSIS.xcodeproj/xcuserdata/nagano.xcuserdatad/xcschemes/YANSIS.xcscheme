@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0810"
+   LastUpgradeVersion = "0820"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -17,20 +17,6 @@
                BlueprintIdentifier = "D9F3B54B1A5E318C0053AECE"
                BuildableName = "YANSIS.app"
                BlueprintName = "YANSIS"
-               ReferencedContainer = "container:YANSIS.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D9F3B5641A5E318C0053AECE"
-               BuildableName = "YANSISTests.xctest"
-               BlueprintName = "YANSISTests"
                ReferencedContainer = "container:YANSIS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
