@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D9485FF71ADB45CE0063F888 /* ScoreEstimator.m in Sources */ = {isa = PBXBuildFile; fileRef = D9485FF61ADB45CE0063F888 /* ScoreEstimator.m */; };
 		D99380311A665BB40017A49C /* DataAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = D99380301A665BB40017A49C /* DataAccessor.m */; };
+		D9B972FB1E25B63300F9214E /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B972FA1E25B63300F9214E /* ViewController2.m */; };
 		D9F3B5521A5E318C0053AECE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F3B5511A5E318C0053AECE /* main.m */; };
 		D9F3B5551A5E318C0053AECE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F3B5541A5E318C0053AECE /* AppDelegate.m */; };
 		D9F3B5581A5E318C0053AECE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F3B5571A5E318C0053AECE /* ViewController.m */; };
@@ -62,10 +63,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D9485FF51ADB3D490063F888 /* ScoreEstimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreEstimator.h; sourceTree = "<group>"; };
-		D9485FF61ADB45CE0063F888 /* ScoreEstimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreEstimator.m; sourceTree = "<group>"; };
-		D993802F1A665B110017A49C /* DataAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataAccessor.h; sourceTree = "<group>"; };
-		D99380301A665BB40017A49C /* DataAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataAccessor.m; sourceTree = "<group>"; };
+		D9485FF51ADB3D490063F888 /* ScoreEstimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScoreEstimator.h; path = EJAdvisor3/ScoreEstimator.h; sourceTree = "<group>"; };
+		D9485FF61ADB45CE0063F888 /* ScoreEstimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScoreEstimator.m; path = EJAdvisor3/ScoreEstimator.m; sourceTree = "<group>"; };
+		D993802F1A665B110017A49C /* DataAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataAccessor.h; path = EJAdvisor3/DataAccessor.h; sourceTree = "<group>"; };
+		D99380301A665BB40017A49C /* DataAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataAccessor.m; path = EJAdvisor3/DataAccessor.m; sourceTree = "<group>"; };
+		D9947C191E1E2E7200696796 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		D9947C1A1E1E2E7200696796 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		D9B972F91E25B63300F9214E /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
+		D9B972FA1E25B63300F9214E /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
 		D9F3B54C1A5E318C0053AECE /* YANSIS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YANSIS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F3B5501A5E318C0053AECE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9F3B5511A5E318C0053AECE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -79,70 +84,70 @@
 		D9F3B5651A5E318C0053AECE /* YANSISTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YANSISTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F3B56A1A5E318C0053AECE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9F3B56B1A5E318C0053AECE /* YANSISTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YANSISTests.m; sourceTree = "<group>"; };
-		D9F3B5751A5E31C20053AECE /* CompositPostProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompositPostProcessor.h; sourceTree = "<group>"; };
-		D9F3B5761A5E31C20053AECE /* CompositPostProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompositPostProcessor.m; sourceTree = "<group>"; };
-		D9F3B5771A5E31C20053AECE /* CSVAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSVAnalyzer.h; sourceTree = "<group>"; };
-		D9F3B5781A5E31C20053AECE /* CSVAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSVAnalyzer.m; sourceTree = "<group>"; };
-		D9F3B5791A5E31C20053AECE /* CSVData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSVData.h; sourceTree = "<group>"; };
-		D9F3B57A1A5E31C20053AECE /* CSVData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSVData.m; sourceTree = "<group>"; };
-		D9F3B57B1A5E31C20053AECE /* CSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSVParser.h; sourceTree = "<group>"; };
-		D9F3B57C1A5E31C20053AECE /* CSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSVParser.m; sourceTree = "<group>"; };
-		D9F3B57D1A5E31C20053AECE /* CToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CToken.h; sourceTree = "<group>"; };
-		D9F3B57E1A5E31C20053AECE /* CToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CToken.m; sourceTree = "<group>"; };
-		D9F3B57F1A5E31C20053AECE /* Dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dictionary.h; sourceTree = "<group>"; };
-		D9F3B5801A5E31C20053AECE /* Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dictionary.m; sourceTree = "<group>"; };
-		D9F3B5811A5E31C20053AECE /* DoubleArrayTrie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleArrayTrie.h; sourceTree = "<group>"; };
-		D9F3B5821A5E31C20053AECE /* DoubleArrayTrie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleArrayTrie.m; sourceTree = "<group>"; };
-		D9F3B5831A5E31C20053AECE /* EJAdvisor3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EJAdvisor3.h; sourceTree = "<group>"; };
-		D9F3B5841A5E31C20053AECE /* EJAdvisor3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EJAdvisor3.m; sourceTree = "<group>"; };
-		D9F3B5851A5E31C20053AECE /* EJConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EJConfig.h; sourceTree = "<group>"; };
-		D9F3B5861A5E31C20053AECE /* EJConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EJConfig.m; sourceTree = "<group>"; };
-		D9F3B5871A5E31C20053AECE /* EJExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EJExample.h; sourceTree = "<group>"; };
-		D9F3B5881A5E31C20053AECE /* EJExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EJExample.m; sourceTree = "<group>"; };
-		D9F3B5891A5E31C20053AECE /* ExampleFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleFinder.h; sourceTree = "<group>"; };
-		D9F3B58A1A5E31C20053AECE /* ExampleFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleFinder.m; sourceTree = "<group>"; };
-		D9F3B58B1A5E31C20053AECE /* FileAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileAccessor.h; sourceTree = "<group>"; };
-		D9F3B58C1A5E31C20053AECE /* FileAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileAccessor.m; sourceTree = "<group>"; };
-		D9F3B58D1A5E31C20053AECE /* FileWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileWriter.h; sourceTree = "<group>"; };
-		D9F3B58E1A5E31C20053AECE /* FileWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileWriter.m; sourceTree = "<group>"; };
-		D9F3B58F1A5E31C20053AECE /* GradeTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradeTable.h; sourceTree = "<group>"; };
-		D9F3B5901A5E31C20053AECE /* GradeTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradeTable.m; sourceTree = "<group>"; };
-		D9F3B59F1A5E31F00053AECE /* JapaneseTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JapaneseTokenizer.h; sourceTree = "<group>"; };
-		D9F3B5A01A5E31F00053AECE /* JapaneseTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JapaneseTokenizer.m; sourceTree = "<group>"; };
-		D9F3B5A11A5E31F00053AECE /* morph */ = {isa = PBXFileReference; lastKnownFileType = folder; path = morph; sourceTree = "<group>"; };
-		D9F3B5A21A5E31F00053AECE /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
-		D9F3B5A31A5E31F00053AECE /* Node.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Node.m; sourceTree = "<group>"; };
-		D9F3B5A41A5E31F00053AECE /* POS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POS.h; sourceTree = "<group>"; };
-		D9F3B5A51A5E31F00053AECE /* POS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POS.m; sourceTree = "<group>"; };
-		D9F3B5A61A5E31F00053AECE /* PostProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostProcessor.h; sourceTree = "<group>"; };
-		D9F3B5A71A5E31F00053AECE /* PostProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostProcessor.m; sourceTree = "<group>"; };
-		D9F3B5A81A5E31F00053AECE /* PreProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreProcessor.h; sourceTree = "<group>"; };
-		D9F3B5A91A5E31F00053AECE /* PreProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreProcessor.m; sourceTree = "<group>"; };
-		D9F3B5AA1A5E31F00053AECE /* Recommendation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recommendation.h; sourceTree = "<group>"; };
-		D9F3B5AB1A5E31F00053AECE /* Recommendation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recommendation.m; sourceTree = "<group>"; };
-		D9F3B5AC1A5E31F00053AECE /* RemarkPostProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemarkPostProcessor.h; sourceTree = "<group>"; };
-		D9F3B5AD1A5E31F00053AECE /* RemarkPostProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemarkPostProcessor.m; sourceTree = "<group>"; };
-		D9F3B5AE1A5E31F00053AECE /* sen */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sen; sourceTree = "<group>"; };
-		D9F3B5AF1A5E31F00053AECE /* StringAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringAccessor.h; sourceTree = "<group>"; };
-		D9F3B5B01A5E31F00053AECE /* StringAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringAccessor.m; sourceTree = "<group>"; };
-		D9F3B5B11A5E31F00053AECE /* StringTagger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringTagger.h; sourceTree = "<group>"; };
-		D9F3B5B21A5E31F00053AECE /* StringTagger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringTagger.m; sourceTree = "<group>"; };
-		D9F3B5B31A5E31F00053AECE /* Token.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Token.h; sourceTree = "<group>"; };
-		D9F3B5B41A5E31F00053AECE /* Token.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Token.m; sourceTree = "<group>"; };
-		D9F3B5B51A5E31F00053AECE /* Tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tokenizer.h; sourceTree = "<group>"; };
-		D9F3B5B61A5E31F00053AECE /* Tokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tokenizer.m; sourceTree = "<group>"; };
-		D9F3B5B91A5E31F00053AECE /* Viterbi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Viterbi.h; sourceTree = "<group>"; };
-		D9F3B5BA1A5E31F00053AECE /* Viterbi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Viterbi.m; sourceTree = "<group>"; };
-		D9F3B5BB1A5E31F00053AECE /* VocabAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VocabAnalyzer.h; sourceTree = "<group>"; };
-		D9F3B5BC1A5E31F00053AECE /* VocabAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VocabAnalyzer.m; sourceTree = "<group>"; };
-		D9F3B5BD1A5E31F00053AECE /* VocabGrade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VocabGrade.h; sourceTree = "<group>"; };
-		D9F3B5BE1A5E31F00053AECE /* VocabGrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VocabGrade.m; sourceTree = "<group>"; };
-		D9F3B5BF1A5E31F00053AECE /* WordProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordProperty.h; sourceTree = "<group>"; };
-		D9F3B5C01A5E31F00053AECE /* WordProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordProperty.m; sourceTree = "<group>"; };
-		D9F3B5C11A5E31F00053AECE /* WordPropertyFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPropertyFactory.h; sourceTree = "<group>"; };
-		D9F3B5C21A5E31F00053AECE /* WordPropertyFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPropertyFactory.m; sourceTree = "<group>"; };
-		D9F3B5C31A5E31F00053AECE /* WordWithGrade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordWithGrade.h; sourceTree = "<group>"; };
-		D9F3B5C41A5E31F00053AECE /* WordWithGrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordWithGrade.m; sourceTree = "<group>"; };
+		D9F3B5751A5E31C20053AECE /* CompositPostProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CompositPostProcessor.h; path = Sen/CompositPostProcessor.h; sourceTree = "<group>"; };
+		D9F3B5761A5E31C20053AECE /* CompositPostProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CompositPostProcessor.m; path = Sen/CompositPostProcessor.m; sourceTree = "<group>"; };
+		D9F3B5771A5E31C20053AECE /* CSVAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSVAnalyzer.h; path = EJAdvisor3/CSVAnalyzer.h; sourceTree = "<group>"; };
+		D9F3B5781A5E31C20053AECE /* CSVAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSVAnalyzer.m; path = EJAdvisor3/CSVAnalyzer.m; sourceTree = "<group>"; };
+		D9F3B5791A5E31C20053AECE /* CSVData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSVData.h; path = Sen/CSVData.h; sourceTree = "<group>"; };
+		D9F3B57A1A5E31C20053AECE /* CSVData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSVData.m; path = Sen/CSVData.m; sourceTree = "<group>"; };
+		D9F3B57B1A5E31C20053AECE /* CSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSVParser.h; path = Sen/CSVParser.h; sourceTree = "<group>"; };
+		D9F3B57C1A5E31C20053AECE /* CSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSVParser.m; path = Sen/CSVParser.m; sourceTree = "<group>"; };
+		D9F3B57D1A5E31C20053AECE /* CToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CToken.h; path = Sen/CToken.h; sourceTree = "<group>"; };
+		D9F3B57E1A5E31C20053AECE /* CToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CToken.m; path = Sen/CToken.m; sourceTree = "<group>"; };
+		D9F3B57F1A5E31C20053AECE /* Dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dictionary.h; path = Sen/Dictionary.h; sourceTree = "<group>"; };
+		D9F3B5801A5E31C20053AECE /* Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dictionary.m; path = Sen/Dictionary.m; sourceTree = "<group>"; };
+		D9F3B5811A5E31C20053AECE /* DoubleArrayTrie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DoubleArrayTrie.h; path = Sen/DoubleArrayTrie.h; sourceTree = "<group>"; };
+		D9F3B5821A5E31C20053AECE /* DoubleArrayTrie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DoubleArrayTrie.m; path = Sen/DoubleArrayTrie.m; sourceTree = "<group>"; };
+		D9F3B5831A5E31C20053AECE /* EJAdvisor3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EJAdvisor3.h; path = EJAdvisor3/EJAdvisor3.h; sourceTree = "<group>"; };
+		D9F3B5841A5E31C20053AECE /* EJAdvisor3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EJAdvisor3.m; path = EJAdvisor3/EJAdvisor3.m; sourceTree = "<group>"; };
+		D9F3B5851A5E31C20053AECE /* EJConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EJConfig.h; path = EJAdvisor3/EJConfig.h; sourceTree = "<group>"; };
+		D9F3B5861A5E31C20053AECE /* EJConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EJConfig.m; path = EJAdvisor3/EJConfig.m; sourceTree = "<group>"; };
+		D9F3B5871A5E31C20053AECE /* EJExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EJExample.h; path = EJAdvisor3/EJExample.h; sourceTree = "<group>"; };
+		D9F3B5881A5E31C20053AECE /* EJExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EJExample.m; path = EJAdvisor3/EJExample.m; sourceTree = "<group>"; };
+		D9F3B5891A5E31C20053AECE /* ExampleFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExampleFinder.h; path = EJAdvisor3/ExampleFinder.h; sourceTree = "<group>"; };
+		D9F3B58A1A5E31C20053AECE /* ExampleFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExampleFinder.m; path = EJAdvisor3/ExampleFinder.m; sourceTree = "<group>"; };
+		D9F3B58B1A5E31C20053AECE /* FileAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileAccessor.h; path = EJAdvisor3/FileAccessor.h; sourceTree = "<group>"; };
+		D9F3B58C1A5E31C20053AECE /* FileAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileAccessor.m; path = EJAdvisor3/FileAccessor.m; sourceTree = "<group>"; };
+		D9F3B58D1A5E31C20053AECE /* FileWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileWriter.h; path = EJAdvisor3/FileWriter.h; sourceTree = "<group>"; };
+		D9F3B58E1A5E31C20053AECE /* FileWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileWriter.m; path = EJAdvisor3/FileWriter.m; sourceTree = "<group>"; };
+		D9F3B58F1A5E31C20053AECE /* GradeTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GradeTable.h; path = EJAdvisor3/GradeTable.h; sourceTree = "<group>"; };
+		D9F3B5901A5E31C20053AECE /* GradeTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GradeTable.m; path = EJAdvisor3/GradeTable.m; sourceTree = "<group>"; };
+		D9F3B59F1A5E31F00053AECE /* JapaneseTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JapaneseTokenizer.h; path = Sen/JapaneseTokenizer.h; sourceTree = "<group>"; };
+		D9F3B5A01A5E31F00053AECE /* JapaneseTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JapaneseTokenizer.m; path = Sen/JapaneseTokenizer.m; sourceTree = "<group>"; };
+		D9F3B5A11A5E31F00053AECE /* morph */ = {isa = PBXFileReference; lastKnownFileType = folder; name = morph; path = Asset/morph; sourceTree = "<group>"; };
+		D9F3B5A21A5E31F00053AECE /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Node.h; path = Sen/Node.h; sourceTree = "<group>"; };
+		D9F3B5A31A5E31F00053AECE /* Node.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Node.m; path = Sen/Node.m; sourceTree = "<group>"; };
+		D9F3B5A41A5E31F00053AECE /* POS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POS.h; path = Sen/POS.h; sourceTree = "<group>"; };
+		D9F3B5A51A5E31F00053AECE /* POS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POS.m; path = Sen/POS.m; sourceTree = "<group>"; };
+		D9F3B5A61A5E31F00053AECE /* PostProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostProcessor.h; path = Sen/PostProcessor.h; sourceTree = "<group>"; };
+		D9F3B5A71A5E31F00053AECE /* PostProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostProcessor.m; path = Sen/PostProcessor.m; sourceTree = "<group>"; };
+		D9F3B5A81A5E31F00053AECE /* PreProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreProcessor.h; path = Sen/PreProcessor.h; sourceTree = "<group>"; };
+		D9F3B5A91A5E31F00053AECE /* PreProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreProcessor.m; path = Sen/PreProcessor.m; sourceTree = "<group>"; };
+		D9F3B5AA1A5E31F00053AECE /* Recommendation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Recommendation.h; path = Sen/Recommendation.h; sourceTree = "<group>"; };
+		D9F3B5AB1A5E31F00053AECE /* Recommendation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Recommendation.m; path = Sen/Recommendation.m; sourceTree = "<group>"; };
+		D9F3B5AC1A5E31F00053AECE /* RemarkPostProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemarkPostProcessor.h; path = Sen/RemarkPostProcessor.h; sourceTree = "<group>"; };
+		D9F3B5AD1A5E31F00053AECE /* RemarkPostProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RemarkPostProcessor.m; path = Sen/RemarkPostProcessor.m; sourceTree = "<group>"; };
+		D9F3B5AE1A5E31F00053AECE /* sen */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sen; path = Asset/sen; sourceTree = "<group>"; };
+		D9F3B5AF1A5E31F00053AECE /* StringAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StringAccessor.h; path = Sen/StringAccessor.h; sourceTree = "<group>"; };
+		D9F3B5B01A5E31F00053AECE /* StringAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StringAccessor.m; path = Sen/StringAccessor.m; sourceTree = "<group>"; };
+		D9F3B5B11A5E31F00053AECE /* StringTagger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StringTagger.h; path = Sen/StringTagger.h; sourceTree = "<group>"; };
+		D9F3B5B21A5E31F00053AECE /* StringTagger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StringTagger.m; path = Sen/StringTagger.m; sourceTree = "<group>"; };
+		D9F3B5B31A5E31F00053AECE /* Token.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Token.h; path = Sen/Token.h; sourceTree = "<group>"; };
+		D9F3B5B41A5E31F00053AECE /* Token.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Token.m; path = Sen/Token.m; sourceTree = "<group>"; };
+		D9F3B5B51A5E31F00053AECE /* Tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tokenizer.h; path = Sen/Tokenizer.h; sourceTree = "<group>"; };
+		D9F3B5B61A5E31F00053AECE /* Tokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tokenizer.m; path = Sen/Tokenizer.m; sourceTree = "<group>"; };
+		D9F3B5B91A5E31F00053AECE /* Viterbi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Viterbi.h; path = Sen/Viterbi.h; sourceTree = "<group>"; };
+		D9F3B5BA1A5E31F00053AECE /* Viterbi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Viterbi.m; path = Sen/Viterbi.m; sourceTree = "<group>"; };
+		D9F3B5BB1A5E31F00053AECE /* VocabAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VocabAnalyzer.h; path = EJAdvisor3/VocabAnalyzer.h; sourceTree = "<group>"; };
+		D9F3B5BC1A5E31F00053AECE /* VocabAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VocabAnalyzer.m; path = EJAdvisor3/VocabAnalyzer.m; sourceTree = "<group>"; };
+		D9F3B5BD1A5E31F00053AECE /* VocabGrade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VocabGrade.h; path = EJAdvisor3/VocabGrade.h; sourceTree = "<group>"; };
+		D9F3B5BE1A5E31F00053AECE /* VocabGrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VocabGrade.m; path = EJAdvisor3/VocabGrade.m; sourceTree = "<group>"; };
+		D9F3B5BF1A5E31F00053AECE /* WordProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WordProperty.h; path = EJAdvisor3/WordProperty.h; sourceTree = "<group>"; };
+		D9F3B5C01A5E31F00053AECE /* WordProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WordProperty.m; path = EJAdvisor3/WordProperty.m; sourceTree = "<group>"; };
+		D9F3B5C11A5E31F00053AECE /* WordPropertyFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WordPropertyFactory.h; path = EJAdvisor3/WordPropertyFactory.h; sourceTree = "<group>"; };
+		D9F3B5C21A5E31F00053AECE /* WordPropertyFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WordPropertyFactory.m; path = EJAdvisor3/WordPropertyFactory.m; sourceTree = "<group>"; };
+		D9F3B5C31A5E31F00053AECE /* WordWithGrade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WordWithGrade.h; path = EJAdvisor3/WordWithGrade.h; sourceTree = "<group>"; };
+		D9F3B5C41A5E31F00053AECE /* WordWithGrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WordWithGrade.m; path = EJAdvisor3/WordWithGrade.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +168,86 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D9B972F11E25A9C400F9214E /* EJAdvisor3 */ = {
+			isa = PBXGroup;
+			children = (
+				D9F3B5771A5E31C20053AECE /* CSVAnalyzer.h */,
+				D9F3B5781A5E31C20053AECE /* CSVAnalyzer.m */,
+				D9F3B5831A5E31C20053AECE /* EJAdvisor3.h */,
+				D9F3B5841A5E31C20053AECE /* EJAdvisor3.m */,
+				D9F3B5851A5E31C20053AECE /* EJConfig.h */,
+				D9F3B5861A5E31C20053AECE /* EJConfig.m */,
+				D9F3B5871A5E31C20053AECE /* EJExample.h */,
+				D9F3B5881A5E31C20053AECE /* EJExample.m */,
+				D9F3B5891A5E31C20053AECE /* ExampleFinder.h */,
+				D9F3B58A1A5E31C20053AECE /* ExampleFinder.m */,
+				D9F3B58B1A5E31C20053AECE /* FileAccessor.h */,
+				D9F3B58C1A5E31C20053AECE /* FileAccessor.m */,
+				D993802F1A665B110017A49C /* DataAccessor.h */,
+				D99380301A665BB40017A49C /* DataAccessor.m */,
+				D9F3B58D1A5E31C20053AECE /* FileWriter.h */,
+				D9F3B58E1A5E31C20053AECE /* FileWriter.m */,
+				D9F3B58F1A5E31C20053AECE /* GradeTable.h */,
+				D9F3B5901A5E31C20053AECE /* GradeTable.m */,
+				D9F3B5BB1A5E31F00053AECE /* VocabAnalyzer.h */,
+				D9F3B5BC1A5E31F00053AECE /* VocabAnalyzer.m */,
+				D9F3B5BD1A5E31F00053AECE /* VocabGrade.h */,
+				D9F3B5BE1A5E31F00053AECE /* VocabGrade.m */,
+				D9F3B5BF1A5E31F00053AECE /* WordProperty.h */,
+				D9F3B5C01A5E31F00053AECE /* WordProperty.m */,
+				D9F3B5C11A5E31F00053AECE /* WordPropertyFactory.h */,
+				D9F3B5C21A5E31F00053AECE /* WordPropertyFactory.m */,
+				D9F3B5C31A5E31F00053AECE /* WordWithGrade.h */,
+				D9F3B5C41A5E31F00053AECE /* WordWithGrade.m */,
+				D9485FF61ADB45CE0063F888 /* ScoreEstimator.m */,
+				D9485FF51ADB3D490063F888 /* ScoreEstimator.h */,
+			);
+			name = EJAdvisor3;
+			sourceTree = "<group>";
+		};
+		D9B972F21E25AA6D00F9214E /* Sen */ = {
+			isa = PBXGroup;
+			children = (
+				D9F3B5AF1A5E31F00053AECE /* StringAccessor.h */,
+				D9F3B5B01A5E31F00053AECE /* StringAccessor.m */,
+				D9F3B5B11A5E31F00053AECE /* StringTagger.h */,
+				D9F3B5B21A5E31F00053AECE /* StringTagger.m */,
+				D9F3B5B31A5E31F00053AECE /* Token.h */,
+				D9F3B5B41A5E31F00053AECE /* Token.m */,
+				D9F3B5B51A5E31F00053AECE /* Tokenizer.h */,
+				D9F3B5B61A5E31F00053AECE /* Tokenizer.m */,
+				D9F3B5B91A5E31F00053AECE /* Viterbi.h */,
+				D9F3B5BA1A5E31F00053AECE /* Viterbi.m */,
+				D9F3B5751A5E31C20053AECE /* CompositPostProcessor.h */,
+				D9F3B5761A5E31C20053AECE /* CompositPostProcessor.m */,
+				D9F3B5791A5E31C20053AECE /* CSVData.h */,
+				D9F3B57A1A5E31C20053AECE /* CSVData.m */,
+				D9F3B57B1A5E31C20053AECE /* CSVParser.h */,
+				D9F3B57C1A5E31C20053AECE /* CSVParser.m */,
+				D9F3B57D1A5E31C20053AECE /* CToken.h */,
+				D9F3B57E1A5E31C20053AECE /* CToken.m */,
+				D9F3B57F1A5E31C20053AECE /* Dictionary.h */,
+				D9F3B5801A5E31C20053AECE /* Dictionary.m */,
+				D9F3B5811A5E31C20053AECE /* DoubleArrayTrie.h */,
+				D9F3B5821A5E31C20053AECE /* DoubleArrayTrie.m */,
+				D9F3B5A21A5E31F00053AECE /* Node.h */,
+				D9F3B5A31A5E31F00053AECE /* Node.m */,
+				D9F3B5A41A5E31F00053AECE /* POS.h */,
+				D9F3B5A51A5E31F00053AECE /* POS.m */,
+				D9F3B5A61A5E31F00053AECE /* PostProcessor.h */,
+				D9F3B5A71A5E31F00053AECE /* PostProcessor.m */,
+				D9F3B5A81A5E31F00053AECE /* PreProcessor.h */,
+				D9F3B5A91A5E31F00053AECE /* PreProcessor.m */,
+				D9F3B5AA1A5E31F00053AECE /* Recommendation.h */,
+				D9F3B5AB1A5E31F00053AECE /* Recommendation.m */,
+				D9F3B5AC1A5E31F00053AECE /* RemarkPostProcessor.h */,
+				D9F3B5AD1A5E31F00053AECE /* RemarkPostProcessor.m */,
+				D9F3B59F1A5E31F00053AECE /* JapaneseTokenizer.h */,
+				D9F3B5A01A5E31F00053AECE /* JapaneseTokenizer.m */,
+			);
+			name = Sen;
+			sourceTree = "<group>";
+		};
 		D9F3B5431A5E318C0053AECE = {
 			isa = PBXGroup;
 			children = (
@@ -184,74 +269,10 @@
 		D9F3B54E1A5E318C0053AECE /* YANSIS */ = {
 			isa = PBXGroup;
 			children = (
-				D9F3B59F1A5E31F00053AECE /* JapaneseTokenizer.h */,
-				D9F3B5A01A5E31F00053AECE /* JapaneseTokenizer.m */,
-				D9485FF51ADB3D490063F888 /* ScoreEstimator.h */,
-				D9485FF61ADB45CE0063F888 /* ScoreEstimator.m */,
+				D9B972F11E25A9C400F9214E /* EJAdvisor3 */,
+				D9B972F21E25AA6D00F9214E /* Sen */,
 				D9F3B5A11A5E31F00053AECE /* morph */,
-				D9F3B5A21A5E31F00053AECE /* Node.h */,
-				D9F3B5A31A5E31F00053AECE /* Node.m */,
-				D9F3B5A41A5E31F00053AECE /* POS.h */,
-				D9F3B5A51A5E31F00053AECE /* POS.m */,
-				D9F3B5A61A5E31F00053AECE /* PostProcessor.h */,
-				D9F3B5A71A5E31F00053AECE /* PostProcessor.m */,
-				D9F3B5A81A5E31F00053AECE /* PreProcessor.h */,
-				D9F3B5A91A5E31F00053AECE /* PreProcessor.m */,
-				D9F3B5AA1A5E31F00053AECE /* Recommendation.h */,
-				D9F3B5AB1A5E31F00053AECE /* Recommendation.m */,
-				D9F3B5AC1A5E31F00053AECE /* RemarkPostProcessor.h */,
-				D9F3B5AD1A5E31F00053AECE /* RemarkPostProcessor.m */,
 				D9F3B5AE1A5E31F00053AECE /* sen */,
-				D9F3B5AF1A5E31F00053AECE /* StringAccessor.h */,
-				D9F3B5B01A5E31F00053AECE /* StringAccessor.m */,
-				D9F3B5B11A5E31F00053AECE /* StringTagger.h */,
-				D9F3B5B21A5E31F00053AECE /* StringTagger.m */,
-				D9F3B5B31A5E31F00053AECE /* Token.h */,
-				D9F3B5B41A5E31F00053AECE /* Token.m */,
-				D9F3B5B51A5E31F00053AECE /* Tokenizer.h */,
-				D9F3B5B61A5E31F00053AECE /* Tokenizer.m */,
-				D9F3B5B91A5E31F00053AECE /* Viterbi.h */,
-				D9F3B5BA1A5E31F00053AECE /* Viterbi.m */,
-				D9F3B5BB1A5E31F00053AECE /* VocabAnalyzer.h */,
-				D9F3B5BC1A5E31F00053AECE /* VocabAnalyzer.m */,
-				D9F3B5BD1A5E31F00053AECE /* VocabGrade.h */,
-				D9F3B5BE1A5E31F00053AECE /* VocabGrade.m */,
-				D9F3B5BF1A5E31F00053AECE /* WordProperty.h */,
-				D9F3B5C01A5E31F00053AECE /* WordProperty.m */,
-				D9F3B5C11A5E31F00053AECE /* WordPropertyFactory.h */,
-				D9F3B5C21A5E31F00053AECE /* WordPropertyFactory.m */,
-				D9F3B5C31A5E31F00053AECE /* WordWithGrade.h */,
-				D9F3B5C41A5E31F00053AECE /* WordWithGrade.m */,
-				D9F3B5751A5E31C20053AECE /* CompositPostProcessor.h */,
-				D9F3B5761A5E31C20053AECE /* CompositPostProcessor.m */,
-				D9F3B5771A5E31C20053AECE /* CSVAnalyzer.h */,
-				D9F3B5781A5E31C20053AECE /* CSVAnalyzer.m */,
-				D9F3B5791A5E31C20053AECE /* CSVData.h */,
-				D9F3B57A1A5E31C20053AECE /* CSVData.m */,
-				D9F3B57B1A5E31C20053AECE /* CSVParser.h */,
-				D9F3B57C1A5E31C20053AECE /* CSVParser.m */,
-				D9F3B57D1A5E31C20053AECE /* CToken.h */,
-				D9F3B57E1A5E31C20053AECE /* CToken.m */,
-				D9F3B57F1A5E31C20053AECE /* Dictionary.h */,
-				D9F3B5801A5E31C20053AECE /* Dictionary.m */,
-				D9F3B5811A5E31C20053AECE /* DoubleArrayTrie.h */,
-				D9F3B5821A5E31C20053AECE /* DoubleArrayTrie.m */,
-				D9F3B5831A5E31C20053AECE /* EJAdvisor3.h */,
-				D9F3B5841A5E31C20053AECE /* EJAdvisor3.m */,
-				D9F3B5851A5E31C20053AECE /* EJConfig.h */,
-				D9F3B5861A5E31C20053AECE /* EJConfig.m */,
-				D9F3B5871A5E31C20053AECE /* EJExample.h */,
-				D9F3B5881A5E31C20053AECE /* EJExample.m */,
-				D9F3B5891A5E31C20053AECE /* ExampleFinder.h */,
-				D9F3B58A1A5E31C20053AECE /* ExampleFinder.m */,
-				D9F3B58B1A5E31C20053AECE /* FileAccessor.h */,
-				D9F3B58C1A5E31C20053AECE /* FileAccessor.m */,
-				D993802F1A665B110017A49C /* DataAccessor.h */,
-				D99380301A665BB40017A49C /* DataAccessor.m */,
-				D9F3B58D1A5E31C20053AECE /* FileWriter.h */,
-				D9F3B58E1A5E31C20053AECE /* FileWriter.m */,
-				D9F3B58F1A5E31C20053AECE /* GradeTable.h */,
-				D9F3B5901A5E31C20053AECE /* GradeTable.m */,
 				D9F3B5531A5E318C0053AECE /* AppDelegate.h */,
 				D9F3B5541A5E318C0053AECE /* AppDelegate.m */,
 				D9F3B5561A5E318C0053AECE /* ViewController.h */,
@@ -260,6 +281,8 @@
 				D9F3B55C1A5E318C0053AECE /* Images.xcassets */,
 				D9F3B55E1A5E318C0053AECE /* LaunchScreen.xib */,
 				D9F3B54F1A5E318C0053AECE /* Supporting Files */,
+				D9B972F91E25B63300F9214E /* ViewController2.h */,
+				D9B972FA1E25B63300F9214E /* ViewController2.m */,
 			);
 			path = YANSIS;
 			sourceTree = "<group>";
@@ -334,7 +357,7 @@
 		D9F3B5441A5E318C0053AECE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "長野雄";
 				TargetAttributes = {
 					D9F3B54B1A5E318C0053AECE = {
@@ -398,6 +421,7 @@
 				D9F3B5581A5E318C0053AECE /* ViewController.m in Sources */,
 				D9485FF71ADB45CE0063F888 /* ScoreEstimator.m in Sources */,
 				D9F3B5551A5E318C0053AECE /* AppDelegate.m in Sources */,
+				D9B972FB1E25B63300F9214E /* ViewController2.m in Sources */,
 				D9F3B5CA1A5E31F00053AECE /* PreProcessor.m in Sources */,
 				D9F3B59E1A5E31C20053AECE /* GradeTable.m in Sources */,
 				D9F3B5991A5E31C20053AECE /* EJConfig.m in Sources */,
@@ -455,6 +479,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D9F3B55A1A5E318C0053AECE /* Base */,
+				D9947C191E1E2E7200696796 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -463,6 +488,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D9F3B55F1A5E318C0053AECE /* Base */,
+				D9947C1A1E1E2E7200696796 /* ja */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -474,6 +500,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -483,8 +510,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -493,6 +522,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -505,7 +535,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -517,6 +547,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -526,8 +557,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -535,13 +568,14 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -555,8 +589,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4Q39AK7F26;
 				INFOPLIST_FILE = YANSIS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.yansis.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -570,8 +605,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4Q39AK7F26;
 				INFOPLIST_FILE = YANSIS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.yansis.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "分析結果"; ObjectID = "AUG-Tr-u3O"; */
+"AUG-Tr-u3O.text" = "分析結果";
+
+/* Class = "UITextView"; text = "テキストを入力して下さい"; ObjectID = "LGK-cI-FbL"; */
+"LGK-cI-FbL.text" = "テキストを入力して下さい";
+
+/* Class = "UILabel"; text = "関連する文例"; ObjectID = "M9r-ey-rYe"; */
+"M9r-ey-rYe.text" = "関連する文例";
+
+/* Class = "UILabel"; text = "文の構成"; ObjectID = "RkB-5d-1Xk"; */
+"RkB-5d-1Xk.text" = "文の構成";
+
+/* Class = "UILabel"; text = "評価ポイント"; ObjectID = "ajQ-Y4-yl4"; */
+"ajQ-Y4-yl4.text" = "評価ポイント";
+
+/* Class = "UIButton"; normalTitle = "分析"; ObjectID = "hdg-cB-vFd"; */
+"hdg-cB-vFd.normalTitle" = "分析";

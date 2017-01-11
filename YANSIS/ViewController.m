@@ -8,8 +8,13 @@
 
 #import "ViewController.h"
 //#import "WordPropertyViewCell.h"
+#import "ViewController2.h"
 #import "EJExample.h"
 #import "EJAdvisor3.h"
+
+static const int kMIN_SPEECH_RATE = 300;
+static const int kMAX_SPEECH_RATE = 600;
+static int speechRate = 360;
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *textInput;
@@ -66,6 +71,8 @@
     self.wordPropertyView.showsHorizontalScrollIndicator = YES;
     self.wordPropertyView.pagingEnabled = NO;
     self.wordPropertyView.userInteractionEnabled = YES;
+    self.wordPropertyView.bounces = NO;
+    
     // self.wordPropertyView.bounces = NO;
     
     selectWord = -1;
@@ -436,4 +443,16 @@
     [loadingView removeFromSuperview];
 }
  */
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([[segue identifier] isEqualToString:@"SpeechRateViewSegue"]){
+        ViewController2 *nextView = [segue destinationViewController];
+        nextView.min_speech_rate = kMIN_SPEECH_RATE;
+        nextView.max_speech_rate = kMAX_SPEECH_RATE;
+        nextView.speech_rate = &speechRate;
+    }
+        
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+
 @end
