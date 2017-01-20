@@ -662,6 +662,32 @@ void HTS_Engine_save_label(HTS_Engine * engine, FILE * fp)
    }
 }
 
+/* HTS_Engine_save_label: save label with time */
+char **HTS_Engine_get_label(HTS_Engine * engine, int *nLabel)
+{
+    size_t i, j;
+    size_t frame, state, duration;
+    char buffer[10000];
+    
+    HTS_Label *label = &engine->label;
+    HTS_SStreamSet *sss = &engine->sss;
+    size_t nstate = HTS_ModelSet_get_nstate(&engine->ms);
+    double rate = engine->condition.fperiod * 1.0e+07 / engine->condition.sampling_frequency;
+    
+    *nLabel = (int)HTS_Label_get_size(label);
+    char **labels = (char **)HTS_calloc(*nLabel, sizeof(char *));
+    
+    for (i = 0, state = 0, frame = 0; i < *nLabel; i++) {
+        for (j = 0, duration = 0; j < nstate; j++)
+            duration += HTS_SStreamSet_get_duration(sss, state++);
+        sprintf(buffer, "%lu %lu %s\n", (unsigned long) (frame * rate), (unsigned long) ((frame + duration) * rate), HTS_Label_get_string(label, i));
+        labels[i] = strdup(buffer);
+        frame += duration;
+    }
+    
+    return labels;
+}
+
 /* HTS_Engine_save_generated_parameter: save generated parameter */
 void HTS_Engine_save_generated_parameter(HTS_Engine * engine, size_t stream_index, FILE * fp)
 {
@@ -758,6 +784,8 @@ void HTS_Engine_refresh(HTS_Engine * engine)
    HTS_Label_clear(&engine->label);
    /* stop flag */
    engine->condition.stop = FALSE;
+ 
+   HTS_Audio_refresh(&engine->audio);
 }
 
 /* HTS_Engine_clear: free engine */

@@ -102,6 +102,9 @@
                                         <state key="normal" title="合成">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="synthesis:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ffw-vg-FEV"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="文の構成" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkB-5d-1Xk">
                                         <rect key="frame" x="5" y="793" width="146" height="21"/>
@@ -173,6 +176,7 @@
                         <outlet property="adviceView" destination="cP9-Ro-3Ay" id="XI5-b4-Ir3"/>
                         <outlet property="exampleView" destination="BhQ-A2-tO6" id="lcG-Xa-aa1"/>
                         <outlet property="sentenceView" destination="f1O-uS-Dlp" id="36K-mg-eec"/>
+                        <outlet property="synthesisButton" destination="Mmi-WD-wCp" id="Jal-Tn-kOW"/>
                         <outlet property="textInput" destination="LGK-cI-FbL" id="dyq-E1-JD8"/>
                         <outlet property="wordPropertyView" destination="pSX-zF-Q9F" id="C5D-Vd-wSH"/>
                     </connections>

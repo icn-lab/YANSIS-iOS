@@ -56,7 +56,7 @@
 HTS_ENGINE_H_START;
 
 #include <stdio.h>
-
+#include <stdlib.h>
 /* common ---------------------------------------------------------- */
 
 typedef char HTS_Boolean;
@@ -85,7 +85,6 @@ typedef struct _HTS_Audio {
    size_t max_buff_size;        /* buffer size for audio output interface */
    short *buff;                 /* current buffer */
    size_t buff_size;            /* current buffer size */
-   void *audio_interface;       /* audio interface specified in compile step */
 } HTS_Audio;
 
 /* model ----------------------------------------------------------- */
@@ -452,6 +451,9 @@ void HTS_Engine_save_information(HTS_Engine * engine, FILE * fp);
 
 /* HTS_Engine_save_label: save label with time */
 void HTS_Engine_save_label(HTS_Engine * engine, FILE * fp);
+
+/* HTS_Engine_get_label: get labels with time */
+char **HTS_Engine_get_label(HTS_Engine * engine, int *nLabel);
 
 /* HTS_Engine_save_generated_parameter: save generated parameter */
 void HTS_Engine_save_generated_parameter(HTS_Engine * engine, size_t stream_index, FILE * fp);

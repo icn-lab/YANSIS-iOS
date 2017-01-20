@@ -8,12 +8,8 @@
 
 #import "ViewController.h"
 //#import "WordPropertyViewCell.h"
-#import "ViewController2.h"
-#import "EJExample.h"
-#import "EJAdvisor3.h"
 
-static const int kMIN_SPEECH_RATE = 300;
-static const int kMAX_SPEECH_RATE = 600;
+
 static int speechRate = 360;
 
 @interface ViewController ()
@@ -21,12 +17,16 @@ static int speechRate = 360;
 @property (weak, nonatomic) IBOutlet UITableView *sentenceView;
 @property (weak, nonatomic) IBOutlet UIScrollView *wordPropertyView;
 @property (weak, nonatomic) IBOutlet UITextView *exampleView;
+@property (weak, nonatomic) IBOutlet UIButton *synthesisButton;
 @property (weak, nonatomic) IBOutlet UITextView *adviceView;
 - (IBAction)analysis:(UIButton *)sender;
+- (IBAction)synthesis:(UIButton *)sender;
 @end
 
 @implementation ViewController{
     EJAdvisor3 *ejadv3;
+    NSString *resourcePath;
+    
     NSArray *wordProperty;
     NSArray *currentSentence;
     NSMutableArray *labelArray;
@@ -34,29 +34,49 @@ static int speechRate = 360;
     UIFont *boldBig;
     UIFont *normal;
     UIColor *colorSelected;
+    
+    CMecab     *mecab;
+    OpenJTalk *openJTalk;
+    
+    NSArray *feature;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+
     // Do any additional setup after loading the view, typically from a nib.
+
+    // get Resouce path;
+    resourcePath = [[NSBundle mainBundle] resourcePath];
+
+    // dictionary & voice setting;
+    //NSString *labfn = @"fknsda01.lab";
+    NSString *htsvoice = @"htsvoice/tohoku-f01-neutral.htsvoice";
+    NSString *dicDir = @"open_jtalk_dic_utf_8-1.10";
+    
     wordProperty = [[NSArray alloc] init];
     currentSentence = [[NSArray alloc] init];
     labelArray = [[NSMutableArray alloc] init];
- //   boldBig = [UIFont boldSystemFontOfSize:18.0f];
- //   normal  = [UIFont systemFontOfSize:14.0f];
+    //   boldBig = [UIFont boldSystemFontOfSize:18.0f];
+    //   normal  = [UIFont systemFontOfSize:14.0f];
     boldBig = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
     normal  = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    
+    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(textDidChanged:) name:UITextViewTextDidChangeNotification object:nil];
     
     self.textInput.layer.borderColor = [[UIColor grayColor] CGColor];
     self.textInput.layer.borderWidth = 1;
     self.textInput.layer.cornerRadius = 8;
+    self.textInput.bounces = NO;
     
     self.adviceView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.adviceView.layer.borderWidth = 1;
+    self.adviceView.bounces = NO;
     
     self.exampleView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.exampleView.layer.borderWidth = 1;
+    self.exampleView.bounces = NO;
     
     self.sentenceView.tag = 0;
     self.sentenceView.delegate = self;
@@ -64,8 +84,8 @@ static int speechRate = 360;
     self.sentenceView.allowsMultipleSelection = NO;
     self.sentenceView.allowsSelection = YES;
     self.sentenceView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    //self.sentenceView.bounces = NO;
-
+    self.sentenceView.bounces = NO;
+    
     self.wordPropertyView.delegate = self;
     self.wordPropertyView.showsVerticalScrollIndicator = NO;
     self.wordPropertyView.showsHorizontalScrollIndicator = YES;
@@ -83,9 +103,46 @@ static int speechRate = 360;
     
     self.exampleView.editable = NO;
     
-    NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
     ejadv3 = [[EJAdvisor3 alloc] initWithString:resourcePath];
     NSLog(@"ejadv3 launched");
+    
+    mecab = [[CMecab alloc] init];
+    [mecab loadDictionary:[resourcePath stringByAppendingPathComponent:dicDir]];
+    
+    openJTalk = [[OpenJTalk alloc] init];
+    [openJTalk loadHTSVoice:[resourcePath stringByAppendingPathComponent:htsvoice]];
+    
+    feature = nil;
+    [self setSynthesisButtonState];
+    [self.synthesisButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+    
+    /*
+    feature = [mecab textAnalysis:@"貴社の記者は汽車で帰社した"];
+    [openJTalk synthesizeFromFeature:feature];
+    for(int i=0;i < feature.count;i++)
+        NSLog(@"feature[%d]:%@", i, feature[i]);
+    */
+    /*
+    [self initSynthesizer:htsvoice];
+    [synthesizer synthesize_from_fn:[resourcePath stringByAppendingPathComponent:labfn]];
+    [synthesizer synthesize_from_fn:[resourcePath stringByAppendingPathComponent:labfn]];
+     */
+}
+
+-(void)textDidChanged:(NSNotification *)nc{
+    feature = nil;
+    [self setSynthesisButtonState];
+}
+
+-(void)setSynthesisButtonState{
+    if(feature == nil){
+        self.synthesisButton.enabled = NO;
+        self.synthesisButton.alpha = 0.3;
+    }
+    else{
+        self.synthesisButton.enabled = YES;
+        self.synthesisButton.alpha = 1.0;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -96,15 +153,15 @@ static int speechRate = 360;
 // for textFiled delegate
 //
 /*
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    // キーボードを隠す
-    [textField resignFirstResponder];
-    //[self.view endEditing:YES];
-    
-    return YES;
-}
-*/
+ - (BOOL)textFieldShouldReturn:(UITextField *)textField
+ {
+ // キーボードを隠す
+ [textField resignFirstResponder];
+ //[self.view endEditing:YES];
+ 
+ return YES;
+ }
+ */
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     UITouch *touch = [[event allTouches] anyObject];
@@ -132,7 +189,7 @@ static int speechRate = 360;
             [self updateWordPropertyView:selected];
             [self showAdvice:wordProperty[selected]];
             break;
-     }
+    }
 }
 
 
@@ -160,7 +217,7 @@ static int speechRate = 360;
             cell.textLabel.font = normal;
             cell.textLabel.attributedText = [self convertWordPropertyToSentence:wordProperty[indexPath.row] sNo:(int)indexPath.row+1];
             break;
-     }
+    }
     return cell;
 }
 ///
@@ -169,11 +226,23 @@ static int speechRate = 360;
 - (IBAction)analysis:(UIButton *)sender {
     NSString *targetText = self.textInput.text;
     [self.textInput resignFirstResponder];
+    targetText = [ejadv3 suppressString:targetText];
     
     if([targetText length] != 0){
-        NSArray *tmpWordProperty = [ejadv3 doAnalysis:targetText];
+        feature = [mecab textAnalysis:targetText];
+        for(int i=0;i < feature.count;i++)
+            NSLog(@"feature[%d]:%@", i, feature[i]);
+
+        NSArray *tmpWordProperty = [ejadv3 doAnalysisFromFeature:feature];
         [self updateSentenceView:tmpWordProperty];
+        [self setSynthesisButtonState];
     }
+}
+
+- (IBAction)synthesis:(UIButton *)sender {
+    NSLog(@"text:%@", self.textInput.text);
+    
+    [openJTalk synthesizeFromFeatureWithRate:feature moraRate:speechRate];
 }
 
 
@@ -246,7 +315,7 @@ static int speechRate = 360;
 
 -(NSAttributedString *)convertWordPropertyToAttributedString:(WordProperty *)wp{
     NSMutableAttributedString  *retStr = [[NSMutableAttributedString alloc] initWithString:@""];
-   
+    
     
     NSAttributedString *cr = [[NSAttributedString alloc] initWithString:@"\n"];
     UIColor *color = [self wordColorFromWordProperty:wp];
@@ -255,13 +324,13 @@ static int speechRate = 360;
     NSAttributedString *basicString = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"原形:%@", [wp getBasicString]]  attributes:@{NSFontAttributeName : normal}];
     
     NSAttributedString *POS = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"品詞:%@", [wp getPOS]]  attributes:@{NSFontAttributeName : normal}];
-
+    
     NSAttributedString *cForm = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"活用形:%@", [wp getCform]]  attributes:@{NSFontAttributeName : normal}];
     
     NSAttributedString *pronuncication = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"読み:%@", [wp getPronunciation]]  attributes:@{NSFontAttributeName : normal}];
-
+    
     NSAttributedString *grade = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"級:%d", [wp getGrade]]  attributes:@{NSForegroundColorAttributeName : color, NSFontAttributeName : normal}];
-
+    
     
     [retStr appendAttributedString:word];
     //[retStr appendAttributedString:cr];
@@ -278,12 +347,12 @@ static int speechRate = 360;
     [retStr appendAttributedString:cr];
     
     /*
-    [retStr appendFormat:@"%@\n原形:%@\n品詞:%@\n活用形:%@\n読み:%@\n級:%d", [wp toString], [wp getBasicString], [wp getPOS], [wp getCform], [wp getPronunciation], [wp getGrade]];
-    NSLog(@"retStr:%@", retStr);
+     [retStr appendFormat:@"%@\n原形:%@\n品詞:%@\n活用形:%@\n読み:%@\n級:%d", [wp toString], [wp getBasicString], [wp getPOS], [wp getCform], [wp getPronunciation], [wp getGrade]];
+     NSLog(@"retStr:%@", retStr);
+     
+     NSString *retString = [[NSString alloc] initWithString:retStr];*/
     
-    NSString *retString = [[NSString alloc] initWithString:retStr];*/
     
-
     return retStr;
 }
 
@@ -321,14 +390,14 @@ static int speechRate = 360;
     NSMutableAttributedString *tmpStr = [[NSMutableAttributedString alloc] init];
     
     for(int i=0;i < [s count];i++){
-//        NSLog(@"basic:%@", [s[i] getBasicString]);
-//        NSLog(@"POS:%@", [s[i] getPOS]);
-
+        //        NSLog(@"basic:%@", [s[i] getBasicString]);
+        //        NSLog(@"POS:%@", [s[i] getPOS]);
+        
         if(i > 0 && [s[i] is_content_word]){
-//            NSLog(@"content");
+            //            NSLog(@"content");
             if([[s[i] getBasicString] compare:@"する"] != NSOrderedSame ||
                [[s[i-1] getPOS] compare:@"名詞-サ変接続"] != NSOrderedSame){
-//                NSLog(@"Add:");
+                //                NSLog(@"Add:");
                 [bArray addObject:tmpStr];
                 tmpStr = [[NSMutableAttributedString alloc] init];
             }
@@ -351,7 +420,7 @@ static int speechRate = 360;
     Boolean easyflag = true;
     
     NSArray *bArray = [self splitToBunsetsu:s];
-//    NSLog(@"bArray:%d", (int)[bArray count]);
+    //    NSLog(@"bArray:%d", (int)[bArray count]);
     
     NSMutableAttributedString *evaluationPoints = [[NSMutableAttributedString alloc] init];
     NSMutableAttributedString *space = [[NSMutableAttributedString alloc] initWithString:@"  "];
@@ -362,7 +431,7 @@ static int speechRate = 360;
         [evaluationPoints appendAttributedString:bArray[i]];
     }
     
-    NSString *scoreStr = [[NSString alloc] initWithFormat:@"\nscore:%.2f\n", score];
+    NSString *scoreStr = [[NSString alloc] initWithFormat:@"(score:%.2f)\n", score];
     [evaluationPoints appendAttributedString:[[NSAttributedString alloc]initWithString:scoreStr]];
     
     for(int i=0;i < [s count];i++){
@@ -391,7 +460,7 @@ static int speechRate = 360;
     
     NSString *advStr = [[ejadv3 getRecommendations:s] componentsJoinedByString:@"\n"];
     [evaluationPoints appendAttributedString:[[NSAttributedString alloc] initWithString:advStr]];
-   // NSLog(@"advice:%@", [evaluationPoints string]);
+    // NSLog(@"advice:%@", [evaluationPoints string]);
     self.adviceView.attributedText = evaluationPoints;
     self.adviceView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 }
@@ -415,44 +484,46 @@ static int speechRate = 360;
     self.exampleView.font = normal;
     self.exampleView.textAlignment = NSTextAlignmentLeft;
 }
-/*
--(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    self.wordPropertyView.frame = CGRectMake(self.wordPropertyView.frame.origin.x,
-                                             self.wordPropertyView.frame.origin.y,
-                                             self.textField.frame.size.width,
-                                             self.wordPropertyView.frame.size.height);
 
-}
-*/
 /*
--(void)startLaunchScreen{
-    loadingView = [[UIView alloc] initWithFrame:self.view.bounds];
-    loadingView.backgroundColor = [UIColor blackColor];
-    loadingView.alpha = 0.5f;
-    
-    indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    
-    [indicator setCenter:CGPointMake(loadingView.bounds.size.width/2.0, loadingView.bounds.size.height/3.0)];
-    [loadingView addSubview:indicator];
-    [self.view addSubview:loadingView];
-    [indicator startAnimating];
-}
-
--(void)stopLaunchScreen{
-    [indicator stopAnimating];
-    [loadingView removeFromSuperview];
-}
+ -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+ self.wordPropertyView.frame = CGRectMake(self.wordPropertyView.frame.origin.x,
+ self.wordPropertyView.frame.origin.y,
+ self.textField.frame.size.width,
+ self.wordPropertyView.frame.size.height);
+ 
+ }
  */
+/*
+ -(void)startLaunchScreen{
+ loadingView = [[UIView alloc] initWithFrame:self.view.bounds];
+ loadingView.backgroundColor = [UIColor blackColor];
+ loadingView.alpha = 0.5f;
+ 
+ indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+ 
+ [indicator setCenter:CGPointMake(loadingView.bounds.size.width/2.0, loadingView.bounds.size.height/3.0)];
+ [loadingView addSubview:indicator];
+ [self.view addSubview:loadingView];
+ [indicator startAnimating];
+ }
+ 
+ -(void)stopLaunchScreen{
+ [indicator stopAnimating];
+ [loadingView removeFromSuperview];
+ }
+ */
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+
     if([[segue identifier] isEqualToString:@"SpeechRateViewSegue"]){
         ViewController2 *nextView = [segue destinationViewController];
         nextView.min_speech_rate = kMIN_SPEECH_RATE;
         nextView.max_speech_rate = kMAX_SPEECH_RATE;
         nextView.speech_rate = &speechRate;
     }
-        
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
+    
+ }
 @end
