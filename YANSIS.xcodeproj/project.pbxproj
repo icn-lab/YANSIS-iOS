@@ -89,16 +89,6 @@
 		D9A869C81E3032A0001C9193 /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9A869471E3032A0001C9193 /* utils.cpp */; };
 		D9A869C91E3032A0001C9193 /* viterbi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9A869491E3032A0001C9193 /* viterbi.cpp */; };
 		D9A869CA1E3032A0001C9193 /* writer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9A8694C1E3032A0001C9193 /* writer.cpp */; };
-		D9A869CB1E3032A0001C9193 /* _left-id.def in Resources */ = {isa = PBXBuildFile; fileRef = D9A8694F1E3032A0001C9193 /* _left-id.def */; };
-		D9A869CC1E3032A0001C9193 /* _pos-id.def in Resources */ = {isa = PBXBuildFile; fileRef = D9A869501E3032A0001C9193 /* _pos-id.def */; };
-		D9A869CD1E3032A0001C9193 /* _rewrite.def in Resources */ = {isa = PBXBuildFile; fileRef = D9A869511E3032A0001C9193 /* _rewrite.def */; };
-		D9A869CE1E3032A0001C9193 /* _right-id.def in Resources */ = {isa = PBXBuildFile; fileRef = D9A869521E3032A0001C9193 /* _right-id.def */; };
-		D9A869CF1E3032A0001C9193 /* char.def in Resources */ = {isa = PBXBuildFile; fileRef = D9A869531E3032A0001C9193 /* char.def */; };
-		D9A869D01E3032A0001C9193 /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = D9A869541E3032A0001C9193 /* COPYING */; };
-		D9A869D11E3032A0001C9193 /* feature.def in Resources */ = {isa = PBXBuildFile; fileRef = D9A869551E3032A0001C9193 /* feature.def */; };
-		D9A869D21E3032A0001C9193 /* matrix.def in Resources */ = {isa = PBXBuildFile; fileRef = D9A869561E3032A0001C9193 /* matrix.def */; };
-		D9A869D31E3032A0001C9193 /* naist-jdic.csv in Resources */ = {isa = PBXBuildFile; fileRef = D9A869571E3032A0001C9193 /* naist-jdic.csv */; };
-		D9A869D41E3032A0001C9193 /* unk.def in Resources */ = {isa = PBXBuildFile; fileRef = D9A869581E3032A0001C9193 /* unk.def */; };
 		D9A869D51E3032A0001C9193 /* mecab2njd.c in Sources */ = {isa = PBXBuildFile; fileRef = D9A8695A1E3032A0001C9193 /* mecab2njd.c */; };
 		D9A869D61E3032A0001C9193 /* NEWS in Resources */ = {isa = PBXBuildFile; fileRef = D9A8695C1E3032A0001C9193 /* NEWS */; };
 		D9A869D71E3032A0001C9193 /* njd.c in Sources */ = {isa = PBXBuildFile; fileRef = D9A8695E1E3032A0001C9193 /* njd.c */; };
@@ -305,16 +295,6 @@
 		D9A8694B1E3032A0001C9193 /* winmain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winmain.h; sourceTree = "<group>"; };
 		D9A8694C1E3032A0001C9193 /* writer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = writer.cpp; sourceTree = "<group>"; };
 		D9A8694D1E3032A0001C9193 /* writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = writer.h; sourceTree = "<group>"; };
-		D9A8694F1E3032A0001C9193 /* _left-id.def */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "_left-id.def"; sourceTree = "<group>"; };
-		D9A869501E3032A0001C9193 /* _pos-id.def */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "_pos-id.def"; sourceTree = "<group>"; };
-		D9A869511E3032A0001C9193 /* _rewrite.def */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _rewrite.def; sourceTree = "<group>"; };
-		D9A869521E3032A0001C9193 /* _right-id.def */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "_right-id.def"; sourceTree = "<group>"; };
-		D9A869531E3032A0001C9193 /* char.def */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = char.def; sourceTree = "<group>"; };
-		D9A869541E3032A0001C9193 /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
-		D9A869551E3032A0001C9193 /* feature.def */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = feature.def; sourceTree = "<group>"; };
-		D9A869561E3032A0001C9193 /* matrix.def */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = matrix.def; sourceTree = "<group>"; };
-		D9A869571E3032A0001C9193 /* naist-jdic.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "naist-jdic.csv"; sourceTree = "<group>"; };
-		D9A869581E3032A0001C9193 /* unk.def */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unk.def; sourceTree = "<group>"; };
 		D9A8695A1E3032A0001C9193 /* mecab2njd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mecab2njd.c; sourceTree = "<group>"; };
 		D9A8695B1E3032A0001C9193 /* mecab2njd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mecab2njd.h; sourceTree = "<group>"; };
 		D9A8695C1E3032A0001C9193 /* NEWS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NEWS; sourceTree = "<group>"; };
@@ -551,7 +531,6 @@
 				D9A8690B1E3032A0001C9193 /* INSTALL */,
 				D9A8690C1E3032A0001C9193 /* jpcommon */,
 				D9A869171E3032A0001C9193 /* mecab */,
-				D9A8694E1E3032A0001C9193 /* mecab-naist-jdic */,
 				D9A869591E3032A0001C9193 /* mecab2njd */,
 				D9A8695C1E3032A0001C9193 /* NEWS */,
 				D9A8695D1E3032A0001C9193 /* njd */,
@@ -657,23 +636,6 @@
 				D9A8694D1E3032A0001C9193 /* writer.h */,
 			);
 			path = src;
-			sourceTree = "<group>";
-		};
-		D9A8694E1E3032A0001C9193 /* mecab-naist-jdic */ = {
-			isa = PBXGroup;
-			children = (
-				D9A8694F1E3032A0001C9193 /* _left-id.def */,
-				D9A869501E3032A0001C9193 /* _pos-id.def */,
-				D9A869511E3032A0001C9193 /* _rewrite.def */,
-				D9A869521E3032A0001C9193 /* _right-id.def */,
-				D9A869531E3032A0001C9193 /* char.def */,
-				D9A869541E3032A0001C9193 /* COPYING */,
-				D9A869551E3032A0001C9193 /* feature.def */,
-				D9A869561E3032A0001C9193 /* matrix.def */,
-				D9A869571E3032A0001C9193 /* naist-jdic.csv */,
-				D9A869581E3032A0001C9193 /* unk.def */,
-			);
-			path = "mecab-naist-jdic";
 			sourceTree = "<group>";
 		};
 		D9A869591E3032A0001C9193 /* mecab2njd */ = {
@@ -993,31 +955,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9A869D11E3032A0001C9193 /* feature.def in Resources */,
 				D9A869D61E3032A0001C9193 /* NEWS in Resources */,
 				D9A869AA1E3032A0001C9193 /* AUTHORS in Resources */,
-				D9A869D01E3032A0001C9193 /* COPYING in Resources */,
 				D9F3B55B1A5E318C0053AECE /* Main.storyboard in Resources */,
 				D9F3B5601A5E318C0053AECE /* LaunchScreen.xib in Resources */,
-				D9A869CC1E3032A0001C9193 /* _pos-id.def in Resources */,
 				D99E18F61E28718D00366FB4 /* fknsda01.lab in Resources */,
 				D9F3B55D1A5E318C0053AECE /* Images.xcassets in Resources */,
 				D9A869AC1E3032A0001C9193 /* ChangeLog in Resources */,
-				D9A869D21E3032A0001C9193 /* matrix.def in Resources */,
 				D9A869AE1E3032A0001C9193 /* INSTALL in Resources */,
 				D9F3B5C61A5E31F00053AECE /* morph in Resources */,
-				D9A869D31E3032A0001C9193 /* naist-jdic.csv in Resources */,
-				D9A869CF1E3032A0001C9193 /* char.def in Resources */,
 				D9A869AD1E3032A0001C9193 /* COPYING in Resources */,
-				D9A869CD1E3032A0001C9193 /* _rewrite.def in Resources */,
-				D9A869CB1E3032A0001C9193 /* _left-id.def in Resources */,
 				D9A869B21E3032A0001C9193 /* COPYING in Resources */,
 				D98C140C1E2F2F590087546A /* open_jtalk_dic_utf_8-1.10 in Resources */,
 				D9A869E01E3032A0001C9193 /* README in Resources */,
 				D9F3B5CD1A5E31F00053AECE /* sen in Resources */,
 				D99E18F41E286F1600366FB4 /* htsvoice in Resources */,
-				D9A869CE1E3032A0001C9193 /* _right-id.def in Resources */,
-				D9A869D41E3032A0001C9193 /* unk.def in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
