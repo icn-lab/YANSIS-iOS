@@ -32,6 +32,7 @@
 }
 
 -(double)calcScore:(NSArray *)vector{
+    //[self printVector:vector];
     double score = [self.weight[0] doubleValue];
     
     for(int i=0;i < NDIM;i++){
@@ -199,7 +200,10 @@
         total += count[i];
     }
     
-    return (double)sum / (double)total;
+    if(total > 0)
+        return (double)sum / (double)total;
+    else
+        return 0.0;
 }
 
 -(int)getLevelNWordCount:(NSArray *)w level:(int)level{

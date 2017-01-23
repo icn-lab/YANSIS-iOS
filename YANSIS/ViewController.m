@@ -23,10 +23,12 @@ static int speechRate = 360;
 - (IBAction)synthesis:(UIButton *)sender;
 @end
 
+NSString *placeHolderText = @"テキストを入力してください";
+
 @implementation ViewController{
     EJAdvisor3 *ejadv3;
     NSString *resourcePath;
-    
+ 
     NSArray *wordProperty;
     NSArray *currentSentence;
     NSMutableArray *labelArray;
@@ -43,12 +45,13 @@ static int speechRate = 360;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     // Do any additional setup after loading the view, typically from a nib.
-
     // get Resouce path;
     resourcePath = [[NSBundle mainBundle] resourcePath];
-
+    self.textInput.text  = placeHolderText;
+    self.textInput.textColor = [UIColor lightGrayColor];
+    
     // dictionary & voice setting;
     //NSString *labfn = @"fknsda01.lab";
     NSString *htsvoice = @"htsvoice/tohoku-f01-neutral.htsvoice";
@@ -61,10 +64,14 @@ static int speechRate = 360;
     //   normal  = [UIFont systemFontOfSize:14.0f];
     boldBig = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
     normal  = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-    
+    /*
     NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(textDidChanged:) name:UITextViewTextDidChangeNotification object:nil];
     
+    [nc addObserver:self selector:@selector(textViewDidBeginEditing:) name:UITextViewTextDidBeginEditingNotification object:nil];
+    */
+    
+    self.textInput.delegate = self;
     self.textInput.layer.borderColor = [[UIColor grayColor] CGColor];
     self.textInput.layer.borderWidth = 1;
     self.textInput.layer.cornerRadius = 8;
@@ -129,7 +136,25 @@ static int speechRate = 360;
      */
 }
 
--(void)textDidChanged:(NSNotification *)nc{
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+    //NSLog(@"Begin Editing");
+    if([textView.text isEqualToString:placeHolderText]){
+        textView.text = @"";
+        textView.textColor = [UIColor blackColor];
+    }
+    [self.textInput becomeFirstResponder];
+}
+
+-(void)textViewDidEndEditing:(UITextView *)textView{
+    if([textView.text isEqualToString:@""]){
+        textView.text = placeHolderText;
+        textView.textColor = [UIColor lightGrayColor];
+    }
+    [textView resignFirstResponder];
+}
+
+-(void)textViewDidChange:(UITextView *)textView{
+    //NSLog(@"Changed");
     feature = nil;
     [self setSynthesisButtonState];
 }
@@ -235,6 +260,7 @@ static int speechRate = 360;
 
         NSArray *tmpWordProperty = [ejadv3 doAnalysisFromFeature:feature];
         [self updateSentenceView:tmpWordProperty];
+        //[self.sentenceView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
         [self setSynthesisButtonState];
     }
 }

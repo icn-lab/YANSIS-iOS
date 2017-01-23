@@ -106,7 +106,12 @@
         if(termInfoArray == nil)
             [self getField:0];
         
-        NSArray *subArray = [termInfoArray subarrayWithRange:NSMakeRange(1,9)];
+        NSMutableArray *tmpArray = [[NSMutableArray alloc] init];
+        for(int i=1;i < 10;i++){
+            [tmpArray addObject:[self getField:i]];
+        }
+        
+        NSArray *subArray = [tmpArray subarrayWithRange:NSMakeRange(0,9)];
         termInfo = [subArray componentsJoinedByString:@","];
     }
     
@@ -122,7 +127,10 @@
         termInfoArray = [feature componentsSeparatedByString:@","];
     }
     
-    return termInfoArray[index];
+    if(index >= termInfoArray.count)
+        return @"*";
+    else
+        return termInfoArray[index];
 }
 
 -(NSString *)toString{
