@@ -24,31 +24,35 @@
     NSMutableArray *tmpItem = [[NSMutableArray alloc] init];
     
     for(NSString *s in label){
-        LabelItem *item = [[LabelItem alloc] init];
-        [item fromString:s];
-        [tmpItem addObject:item];
+        @autoreleasepool {
+            LabelItem *item = [[LabelItem alloc] init];
+            [item fromString:s];
+            [tmpItem addObject:item];
+        }
     }
     
     items = [NSArray arrayWithArray:tmpItem];
 }
 
 -(NSString *)toString{
-    NSString *retStr = @"";
-    
-    int itemSize = (int)items.count;
-
-    NSString *str = [self toLabelString:nil cur:items[0] succ:items[1]];
-    retStr = [retStr stringByAppendingFormat:@"%@\n",str];
-    
-    for(int i=1; i< itemSize-1;i++){
-        str = [self toLabelString:items[i-1] cur:items[i] succ:items[i+1]];
+    @autoreleasepool {
+        NSString *retStr = @"";
+        
+        int itemSize = (int)items.count;
+        
+        NSString *str = [self toLabelString:nil cur:items[0] succ:items[1]];
         retStr = [retStr stringByAppendingFormat:@"%@\n",str];
+        
+        for(int i=1; i< itemSize-1;i++){
+            str = [self toLabelString:items[i-1] cur:items[i] succ:items[i+1]];
+            retStr = [retStr stringByAppendingFormat:@"%@\n",str];
+        }
+        
+        str = [self toLabelString:items[itemSize-2] cur:items[itemSize-1] succ:nil];
+        retStr = [retStr stringByAppendingFormat:@"%@\n",str];
+        
+        return retStr;
     }
-    
-    str = [self toLabelString:items[itemSize-2] cur:items[itemSize-1] succ:nil];
-    retStr = [retStr stringByAppendingFormat:@"%@\n",str];
-    
-    return retStr;
 }
 
 -(NSString *)toLabelString:(LabelItem *)pre cur:(LabelItem *)cur succ:(LabelItem *)succ{

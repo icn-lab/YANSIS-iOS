@@ -8,7 +8,7 @@
 
 #import "CMecab.h"
 
-const int MECAB_MAXBUFLEN = 1024 * 100;
+const int MECAB_MAXBUFLEN = 1024 * 1000;
 
 @implementation CMecab{
     Mecab mecab;
@@ -43,7 +43,7 @@ const int MECAB_MAXBUFLEN = 1024 * 100;
     
     Mecab_refresh(&mecab);
     
-    return [NSArray arrayWithArray:tmpArray];
+    return tmpArray;
 
 }
 

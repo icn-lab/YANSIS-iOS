@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainView" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tMF-aV-yic"/>
                         <viewControllerLayoutGuide type="bottom" id="VdB-xq-ihp"/>
@@ -228,6 +228,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53d-a9-NeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1886.9565217391305" y="-225.81521739130437"/>
+        </scene>
+        <!--View Controller3-->
+        <scene sceneID="F08-m6-nQI">
+            <objects>
+                <viewController storyboardIdentifier="indicatorView" id="9ab-r1-x0e" customClass="ViewController3" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zPq-uS-Q1O"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZBS-rj-IrM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oEp-SY-EWe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="WoL-QA-2RF">
+                                <rect key="frame" x="189" y="350" width="37" height="37"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="合成中" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJc-Os-Zah">
+                                <rect key="frame" x="186" y="404" width="52" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sJc-Os-Zah" firstAttribute="top" secondItem="WoL-QA-2RF" secondAttribute="bottom" constant="10" id="NiD-Kt-GeZ"/>
+                            <constraint firstItem="WoL-QA-2RF" firstAttribute="centerY" secondItem="oEp-SY-EWe" secondAttribute="centerY" id="Xby-iS-AR6"/>
+                            <constraint firstItem="WoL-QA-2RF" firstAttribute="centerX" secondItem="oEp-SY-EWe" secondAttribute="centerX" id="i2G-sm-uo1"/>
+                            <constraint firstItem="sJc-Os-Zah" firstAttribute="centerX" secondItem="oEp-SY-EWe" secondAttribute="centerX" id="veH-kE-CDz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="indicatorLabel" destination="sJc-Os-Zah" id="YhR-ce-ehG"/>
+                        <outlet property="indicatorView" destination="WoL-QA-2RF" id="Svp-Dw-oWi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OhW-uE-4Nd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2674" y="-117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="T79-uS-k2d">

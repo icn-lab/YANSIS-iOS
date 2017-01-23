@@ -28,7 +28,7 @@ NSString *placeHolderText = @"テキストを入力してください";
 @implementation ViewController{
     EJAdvisor3 *ejadv3;
     NSString *resourcePath;
- 
+    
     NSArray *wordProperty;
     NSArray *currentSentence;
     NSMutableArray *labelArray;
@@ -41,6 +41,10 @@ NSString *placeHolderText = @"テキストを入力してください";
     OpenJTalk *openJTalk;
     
     NSArray *feature;
+    dispatch_queue_t globalQueue;
+    dispatch_group_t group;
+    
+    Boolean enableSynthesis;
 }
 
 - (void)viewDidLoad {
@@ -48,6 +52,9 @@ NSString *placeHolderText = @"テキストを入力してください";
     
     // Do any additional setup after loading the view, typically from a nib.
     // get Resouce path;
+    globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    group       = dispatch_group_create();
+    
     resourcePath = [[NSBundle mainBundle] resourcePath];
     self.textInput.text  = placeHolderText;
     self.textInput.textColor = [UIColor lightGrayColor];
@@ -55,7 +62,7 @@ NSString *placeHolderText = @"テキストを入力してください";
     // dictionary & voice setting;
     //NSString *labfn = @"fknsda01.lab";
     NSString *htsvoice = @"htsvoice/tohoku-f01-neutral.htsvoice";
-    NSString *dicDir = @"open_jtalk_dic_utf_8-1.10";
+    NSString *dicDir   = @"open_jtalk_dic_utf_8-1.10";
     
     wordProperty = [[NSArray alloc] init];
     currentSentence = [[NSArray alloc] init];
@@ -65,11 +72,11 @@ NSString *placeHolderText = @"テキストを入力してください";
     boldBig = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
     normal  = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     /*
-    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
-    [nc addObserver:self selector:@selector(textDidChanged:) name:UITextViewTextDidChangeNotification object:nil];
-    
-    [nc addObserver:self selector:@selector(textViewDidBeginEditing:) name:UITextViewTextDidBeginEditingNotification object:nil];
-    */
+     NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+     [nc addObserver:self selector:@selector(textDidChanged:) name:UITextViewTextDidChangeNotification object:nil];
+     
+     [nc addObserver:self selector:@selector(textViewDidBeginEditing:) name:UITextViewTextDidBeginEditingNotification object:nil];
+     */
     
     self.textInput.delegate = self;
     self.textInput.layer.borderColor = [[UIColor grayColor] CGColor];
@@ -99,7 +106,6 @@ NSString *placeHolderText = @"テキストを入力してください";
     self.wordPropertyView.pagingEnabled = NO;
     self.wordPropertyView.userInteractionEnabled = YES;
     self.wordPropertyView.bounces = NO;
-    
     // self.wordPropertyView.bounces = NO;
     
     selectWord = -1;
@@ -120,19 +126,19 @@ NSString *placeHolderText = @"テキストを入力してください";
     [openJTalk loadHTSVoice:[resourcePath stringByAppendingPathComponent:htsvoice]];
     
     feature = nil;
-    [self setSynthesisButtonState];
+    [self setSynthesisButtonState:NO];
     [self.synthesisButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
-    
+  
     /*
-    feature = [mecab textAnalysis:@"貴社の記者は汽車で帰社した"];
-    [openJTalk synthesizeFromFeature:feature];
-    for(int i=0;i < feature.count;i++)
-        NSLog(@"feature[%d]:%@", i, feature[i]);
-    */
+     feature = [mecab textAnalysis:@"貴社の記者は汽車で帰社した"];
+     [openJTalk synthesizeFromFeature:feature];
+     for(int i=0;i < feature.count;i++)
+     NSLog(@"feature[%d]:%@", i, feature[i]);
+     */
     /*
-    [self initSynthesizer:htsvoice];
-    [synthesizer synthesize_from_fn:[resourcePath stringByAppendingPathComponent:labfn]];
-    [synthesizer synthesize_from_fn:[resourcePath stringByAppendingPathComponent:labfn]];
+     [self initSynthesizer:htsvoice];
+     [synthesizer synthesize_from_fn:[resourcePath stringByAppendingPathComponent:labfn]];
+     [synthesizer synthesize_from_fn:[resourcePath stringByAppendingPathComponent:labfn]];
      */
 }
 
@@ -155,18 +161,20 @@ NSString *placeHolderText = @"テキストを入力してください";
 
 -(void)textViewDidChange:(UITextView *)textView{
     //NSLog(@"Changed");
-    feature = nil;
-    [self setSynthesisButtonState];
+    
+    [self setSynthesisButtonState:NO];
 }
 
--(void)setSynthesisButtonState{
-    if(feature == nil){
-        self.synthesisButton.enabled = NO;
-        self.synthesisButton.alpha = 0.3;
-    }
-    else{
+-(void)setSynthesisButtonState:(Boolean)state{
+    if(state){
+        enableSynthesis = YES;
         self.synthesisButton.enabled = YES;
         self.synthesisButton.alpha = 1.0;
+    }
+    else{
+        enableSynthesis = YES;
+        self.synthesisButton.enabled = NO;
+        self.synthesisButton.alpha = 0.3;
     }
 }
 
@@ -257,18 +265,37 @@ NSString *placeHolderText = @"テキストを入力してください";
         feature = [mecab textAnalysis:targetText];
         for(int i=0;i < feature.count;i++)
             NSLog(@"feature[%d]:%@", i, feature[i]);
-
+        
         NSArray *tmpWordProperty = [ejadv3 doAnalysisFromFeature:feature];
         [self updateSentenceView:tmpWordProperty];
         //[self.sentenceView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
-        [self setSynthesisButtonState];
+        [self setSynthesisButtonState:YES];
     }
 }
 
 - (IBAction)synthesis:(UIButton *)sender {
+    ViewController3 *vc3 = [self.storyboard instantiateViewControllerWithIdentifier:@"indicatorView"];
+    /*
+    [indicatorView startAnimating];
+    indicatorView.hidden = NO;
+    indicateText.hidden = NO;
+    */
     NSLog(@"text:%@", self.textInput.text);
+  
+    dispatch_group_async(group, globalQueue, ^{
+        [openJTalk synthesizeFromFeatureWithRate:feature moraRate:speechRate];
+    });
     
-    [openJTalk synthesizeFromFeatureWithRate:feature moraRate:speechRate];
+    [self.navigationController pushViewController:vc3 animated:NO];
+    
+    dispatch_group_notify(group, globalQueue, ^{
+        [self.navigationController popViewControllerAnimated:NO];
+        [self.navigationController setNavigationBarHidden:NO];
+        /*
+        indicateText.hidden  = YES;
+        indicatorView.hidden = YES;*/
+        
+    });
 }
 
 
@@ -543,7 +570,7 @@ NSString *placeHolderText = @"テキストを入力してください";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-
+    
     if([[segue identifier] isEqualToString:@"SpeechRateViewSegue"]){
         ViewController2 *nextView = [segue destinationViewController];
         nextView.min_speech_rate = kMIN_SPEECH_RATE;
@@ -551,5 +578,5 @@ NSString *placeHolderText = @"テキストを入力してください";
         nextView.speech_rate = &speechRate;
     }
     
- }
+}
 @end

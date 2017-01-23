@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ViewController2.h"
+#import "ViewController3.h"
+
 #import "EJExample.h"
 #import "EJAdvisor3.h"
 #import "OpenJTalk.h"

@@ -44,12 +44,12 @@
         
         if(err != nil)
             NSLog(@"Error");
-
+        
         regexF0 = [NSRegularExpression regularExpressionWithPattern:patternF0 options:NSRegularExpressionCaseInsensitive error:&err];
-
+        
         if(err != nil)
             NSLog(@"Error");
-
+        
         //NSLog(@"init labelitem done");
     }
     
@@ -64,23 +64,24 @@
     //NSLog(@"matches.count=%ld", matches.count);
     NSString *label = nil;
     
-    if(matches != nil){
-        NSTextCheckingResult *nr = matches[0];
-        //NSLog(@"numberOfRanges:%ld\n", nr.numberOfRanges);
-        
-        if(nr.numberOfRanges == 4){
-            NSRange r = [nr rangeAtIndex:1];
-            startTime = (int)[[string substringWithRange:r] integerValue];
+    @autoreleasepool {
+        if(matches != nil){
+            NSTextCheckingResult *nr = matches[0];
+            //NSLog(@"numberOfRanges:%ld\n", nr.numberOfRanges);
             
-            r = [nr rangeAtIndex:2];
-            endTime = (int)[[string substringWithRange:r] integerValue];
-            
-            r = [nr rangeAtIndex:3];
-            label = [string substringWithRange:r];
-            //NSLog(@"startTime:%d endTime:%d label:%@\n", startTime, endTime, label);
+            if(nr.numberOfRanges == 4){
+                NSRange r = [nr rangeAtIndex:1];
+                startTime = (int)[[string substringWithRange:r] integerValue];
+                
+                r = [nr rangeAtIndex:2];
+                endTime = (int)[[string substringWithRange:r] integerValue];
+                
+                r = [nr rangeAtIndex:3];
+                label = [string substringWithRange:r];
+                //NSLog(@"startTime:%d endTime:%d label:%@\n", startTime, endTime, label);
+            }
         }
     }
-    
     if(label != nil){
         matches = [regexPhoneme matchesInString:label options:0 range:NSMakeRange(0, label.length)];
         

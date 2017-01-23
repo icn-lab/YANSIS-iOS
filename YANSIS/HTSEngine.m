@@ -65,7 +65,7 @@ const int kAudioBufferSize = 48000*300;
 }
 
 -(void)speak{
-   
+    
     if(enableAudio == NO)
         return;
     
@@ -106,17 +106,19 @@ const int kAudioBufferSize = 48000*300;
     char **lines = (char **)malloc(sizeof(char *) * count);
     
     for(NSUInteger i=0;i < count;i++){
-        NSString *s = array[i];
-        lines[i] = strdup([s UTF8String]);
+        @autoreleasepool {
+            NSString *s = array[i];
+            lines[i] = strdup([s UTF8String]);
+        }
     }
     
     int result = [self synthesize_from_cstrings:lines numLines:(int)count];
-        
+    
     for(NSUInteger i=0;i < count;i++){
         free(lines[i]);
     }
     free(lines);
-
+    
     return result;
 }
 
@@ -134,7 +136,7 @@ const int kAudioBufferSize = 48000*300;
         [ma addObject:s];
     }
     
-    return [NSArray arrayWithArray:ma];
+    return ma;
 }
 
 -(Boolean)isSynthesisOK{

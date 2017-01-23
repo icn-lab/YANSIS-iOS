@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D91B28A41E35D78800206452 /* ViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B28A31E35D78800206452 /* ViewController3.m */; };
 		D93CD8B01E2619B400807342 /* DataAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = D93CD8741E2619B400807342 /* DataAccessor.m */; };
 		D95F91E91E2EFD1C00A0377C /* OpenJTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = D95F91E81E2EFD1C00A0377C /* OpenJTalk.m */; };
 		D96667D71E31CB490037280C /* CMecab.m in Sources */ = {isa = PBXBuildFile; fileRef = D96667D61E31CB490037280C /* CMecab.m */; };
@@ -128,6 +129,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D91B28A21E35D78800206452 /* ViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController3.h; sourceTree = "<group>"; };
+		D91B28A31E35D78800206452 /* ViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController3.m; sourceTree = "<group>"; };
 		D93CD8741E2619B400807342 /* DataAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataAccessor.m; sourceTree = "<group>"; };
 		D94843B21E2CB6F500DE2C5D /* YANSIS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YANSIS.entitlements; sourceTree = "<group>"; };
 		D94843B61E2CB7CC00DE2C5D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -830,12 +833,14 @@
 				D9F3B5541A5E318C0053AECE /* AppDelegate.m */,
 				D9F3B5561A5E318C0053AECE /* ViewController.h */,
 				D9F3B5571A5E318C0053AECE /* ViewController.m */,
+				D9B972F91E25B63300F9214E /* ViewController2.h */,
+				D9B972FA1E25B63300F9214E /* ViewController2.m */,
+				D91B28A31E35D78800206452 /* ViewController3.m */,
+				D91B28A21E35D78800206452 /* ViewController3.h */,
 				D9F3B5591A5E318C0053AECE /* Main.storyboard */,
 				D9F3B55C1A5E318C0053AECE /* Images.xcassets */,
 				D9F3B55E1A5E318C0053AECE /* LaunchScreen.xib */,
 				D9F3B54F1A5E318C0053AECE /* Supporting Files */,
-				D9B972F91E25B63300F9214E /* ViewController2.h */,
-				D9B972FA1E25B63300F9214E /* ViewController2.m */,
 			);
 			path = YANSIS;
 			sourceTree = "<group>";
@@ -1025,6 +1030,7 @@
 				D966682C1E31D6ED0037280C /* Dictionary.m in Sources */,
 				D96667F51E31D6400037280C /* EJConfig.m in Sources */,
 				D96668321E31D6ED0037280C /* POS.m in Sources */,
+				D91B28A41E35D78800206452 /* ViewController3.m in Sources */,
 				D9A869BF1E3032A0001C9193 /* learner_tagger.cpp in Sources */,
 				D966682F1E31D6ED0037280C /* FileWriter.m in Sources */,
 				D96667F31E31D6400037280C /* CSVAnalyzer.m in Sources */,
