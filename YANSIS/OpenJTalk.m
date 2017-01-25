@@ -64,7 +64,7 @@ const int MAXBUFLEN = 1024 * 100;
 }
 
 -(NSArray *)textAnalysis:(NSString *)text{
-    char buffer[MAXBUFLEN];
+    char *buffer = (char *)malloc(sizeof(char) * MAXBUFLEN);
     const char *txt = [text UTF8String];
     
     text2mecab(buffer, txt);
@@ -79,7 +79,8 @@ const int MAXBUFLEN = 1024 * 100;
     }
     
     Mecab_refresh(mecab);
-    
+
+    free(buffer);
     return tmpArray;
 }
 
@@ -156,21 +157,21 @@ const int MAXBUFLEN = 1024 * 100;
 }
 
 -(int)synthesizeFromTextWithRate:(NSString *)text moraRate:(int)speed{
-    Boolean currentAudioStatus = [engine getAudioStatus];
-    
-    [engine disableAudio];
-    
-    [engine setSpeed:ratio];
-    NSArray *cArray1 = [self getLabelWithTimeFromText:text];
-    Label *label1 = [[Label alloc] init];
-    [label1 fromLabel:cArray1];
-    
-    int sp1  = [label1 getMoraRate];
-    int diff = sp1 - speed;
-    int cnt  = 0;
-    
-    while (cnt < kMaxRepetition){
-        @autoreleasepool {
+    @autoreleasepool {
+        Boolean currentAudioStatus = [engine getAudioStatus];
+        
+        [engine disableAudio];
+        
+        [engine setSpeed:ratio];
+        NSArray *cArray1 = [self getLabelWithTimeFromText:text];
+        Label *label1 = [[Label alloc] init];
+        [label1 fromLabel:cArray1];
+        
+        int sp1  = [label1 getMoraRate];
+        int diff = sp1 - speed;
+        int cnt  = 0;
+        
+        while (cnt < kMaxRepetition){
             if(diff == 0)
                 break;
             
@@ -192,36 +193,38 @@ const int MAXBUFLEN = 1024 * 100;
             ratio = ratio2;
             sp1   = sp2;
             cnt++;
+            
         }
+        NSLog(@"ratio:%lf, speech rate:%d", ratio, sp1);
+        
+        if(currentAudioStatus)
+            [engine enableAudio];
+        else
+            [engine disableAudio];
+        
+        [engine setSpeed:ratio];
+        
+        return [self synthesizeFromText:text];
     }
-    NSLog(@"ratio:%lf, speech rate:%d", ratio, sp1);
-    
-    if(currentAudioStatus)
-        [engine enableAudio];
-    else
-        [engine disableAudio];
-    
-    [engine setSpeed:ratio];
-    
-    return [self synthesizeFromText:text];
 }
-
 -(int)synthesizeFromFeatureWithRate:(NSArray *)feature moraRate:(int)speed{
-    Boolean currentAudioStatus = [engine getAudioStatus];
-    
-    [engine disableAudio];
-    
-    [engine setSpeed:ratio];
-    NSArray *cArray1 = [self getLabelWithTimeFromFeature:feature];
-    Label *label1 = [[Label alloc] init];
-    [label1 fromLabel:cArray1];
-    
-    int sp1  = [label1 getMoraRate];
-    int diff = sp1 - speed;
-    int cnt  = 0;
-    
-    while (cnt < kMaxRepetition){
-        @autoreleasepool {
+    @autoreleasepool {
+        
+        
+        Boolean currentAudioStatus = [engine getAudioStatus];
+        
+        [engine disableAudio];
+        
+        [engine setSpeed:ratio];
+        NSArray *cArray1 = [self getLabelWithTimeFromFeature:feature];
+        Label *label1 = [[Label alloc] init];
+        [label1 fromLabel:cArray1];
+        
+        int sp1  = [label1 getMoraRate];
+        int diff = sp1 - speed;
+        int cnt  = 0;
+        
+        while (cnt < kMaxRepetition){
             if(diff == 0)
                 break;
             
@@ -244,18 +247,17 @@ const int MAXBUFLEN = 1024 * 100;
             sp1   = sp2;
             cnt++;
         }
+        
+        if(currentAudioStatus)
+            [engine enableAudio];
+        else
+            [engine disableAudio];
+        
+        [engine setSpeed:ratio];
+        
+        return [self synthesizeFromFeature:feature];
     }
-    
-    if(currentAudioStatus)
-        [engine enableAudio];
-    else
-        [engine disableAudio];
-    
-    [engine setSpeed:ratio];
-    
-    return [self synthesizeFromFeature:feature];
 }
-
 -(NSArray *)getLabelFromText:(NSString *)text{
     NSArray *feature = [self textAnalysis:text];
     [self feature2NJD:feature];

@@ -8,26 +8,32 @@
 
 #import "CMecab.h"
 
-const int MECAB_MAXBUFLEN = 1024 * 1000;
+const int MECAB_MAXBUFLEN = 1024 * 100;
 
 @implementation CMecab{
     Mecab mecab;
 }
 
 -(id)init{
-    self = [super init];
+    if(self = [super init]){
+        Mecab_initialize(&mecab);
+        
+    }
     return self;
 }
 
 -(void)loadDictionary:(NSString *)directory{
     const char *dirchar = [directory UTF8String];
     
-    Mecab_initialize(&mecab);
-    Mecab_load(&mecab, dirchar);
+    int result = Mecab_load(&mecab, dirchar);
+    if(result == 0){
+        NSLog(@"mecab dictionary is failed to load");
+        exit(1);
+    }
 }
 
 -(NSArray *)textAnalysis:(NSString *)text{
-    char buffer[MECAB_MAXBUFLEN];
+    char *buffer = (char *)malloc(sizeof(char)*MECAB_MAXBUFLEN);
     const char *txt = [text UTF8String];
     
     text2mecab(buffer, txt);
@@ -42,9 +48,10 @@ const int MECAB_MAXBUFLEN = 1024 * 1000;
     }
     
     Mecab_refresh(&mecab);
-    
-    return tmpArray;
 
+    free(buffer);
+    return tmpArray;
+    
 }
 
 @end

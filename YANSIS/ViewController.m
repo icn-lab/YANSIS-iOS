@@ -37,7 +37,7 @@ NSString *placeHolderText = @"テキストを入力してください";
     UIFont *normal;
     UIColor *colorSelected;
     
-    CMecab     *mecab;
+    CMecab    *cmecab;
     OpenJTalk *openJTalk;
     
     NSArray *feature;
@@ -56,6 +56,7 @@ NSString *placeHolderText = @"テキストを入力してください";
     group       = dispatch_group_create();
     
     resourcePath = [[NSBundle mainBundle] resourcePath];
+    
     self.textInput.text  = placeHolderText;
     self.textInput.textColor = [UIColor lightGrayColor];
     
@@ -71,12 +72,6 @@ NSString *placeHolderText = @"テキストを入力してください";
     //   normal  = [UIFont systemFontOfSize:14.0f];
     boldBig = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
     normal  = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-    /*
-     NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
-     [nc addObserver:self selector:@selector(textDidChanged:) name:UITextViewTextDidChangeNotification object:nil];
-     
-     [nc addObserver:self selector:@selector(textViewDidBeginEditing:) name:UITextViewTextDidBeginEditingNotification object:nil];
-     */
     
     self.textInput.delegate = self;
     self.textInput.layer.borderColor = [[UIColor grayColor] CGColor];
@@ -119,27 +114,17 @@ NSString *placeHolderText = @"テキストを入力してください";
     ejadv3 = [[EJAdvisor3 alloc] initWithString:resourcePath];
     NSLog(@"ejadv3 launched");
     
-    mecab = [[CMecab alloc] init];
-    [mecab loadDictionary:[resourcePath stringByAppendingPathComponent:dicDir]];
+    cmecab = [[CMecab alloc] init];
+    [cmecab loadDictionary:[resourcePath stringByAppendingPathComponent:dicDir]];
     
     openJTalk = [[OpenJTalk alloc] init];
     [openJTalk loadHTSVoice:[resourcePath stringByAppendingPathComponent:htsvoice]];
     
     feature = nil;
+    
     [self setSynthesisButtonState:NO];
     [self.synthesisButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
-  
-    /*
-     feature = [mecab textAnalysis:@"貴社の記者は汽車で帰社した"];
-     [openJTalk synthesizeFromFeature:feature];
-     for(int i=0;i < feature.count;i++)
-     NSLog(@"feature[%d]:%@", i, feature[i]);
-     */
-    /*
-     [self initSynthesizer:htsvoice];
-     [synthesizer synthesize_from_fn:[resourcePath stringByAppendingPathComponent:labfn]];
-     [synthesizer synthesize_from_fn:[resourcePath stringByAppendingPathComponent:labfn]];
-     */
+
 }
 
 -(void)textViewDidBeginEditing:(UITextView *)textView{
@@ -172,7 +157,7 @@ NSString *placeHolderText = @"テキストを入力してください";
         self.synthesisButton.alpha = 1.0;
     }
     else{
-        enableSynthesis = YES;
+        enableSynthesis = NO;
         self.synthesisButton.enabled = NO;
         self.synthesisButton.alpha = 0.3;
     }
@@ -258,11 +243,12 @@ NSString *placeHolderText = @"テキストを入力してください";
 /// My Action
 - (IBAction)analysis:(UIButton *)sender {
     NSString *targetText = self.textInput.text;
+    NSLog(@"text:%@", targetText);
     [self.textInput resignFirstResponder];
     targetText = [ejadv3 suppressString:targetText];
     
     if([targetText length] != 0){
-        feature = [mecab textAnalysis:targetText];
+        feature = [cmecab textAnalysis:targetText];
         for(int i=0;i < feature.count;i++)
             NSLog(@"feature[%d]:%@", i, feature[i]);
         

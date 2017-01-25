@@ -44,6 +44,9 @@
 		D96668391E31D6ED0037280C /* Tokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D96668251E31D6ED0037280C /* Tokenizer.m */; };
 		D966683A1E31D6ED0037280C /* Viterbi.m in Sources */ = {isa = PBXBuildFile; fileRef = D96668271E31D6ED0037280C /* Viterbi.m */; };
 		D96668401E31E6D40037280C /* MToken.m in Sources */ = {isa = PBXBuildFile; fileRef = D966683F1E31E6D40037280C /* MToken.m */; };
+		D97871E11E38258D004A0777 /* htsvoice in Resources */ = {isa = PBXBuildFile; fileRef = D97871E01E38258D004A0777 /* htsvoice */; };
+		D97871E31E382595004A0777 /* morph in Resources */ = {isa = PBXBuildFile; fileRef = D97871E21E382595004A0777 /* morph */; };
+		D97871E51E3825AA004A0777 /* open_jtalk_dic_utf_8-1.10 in Resources */ = {isa = PBXBuildFile; fileRef = D97871E41E3825AA004A0777 /* open_jtalk_dic_utf_8-1.10 */; };
 		D979F7261E2F217400A640E2 /* HTS_audio.c in Sources */ = {isa = PBXBuildFile; fileRef = D979F71B1E2F217400A640E2 /* HTS_audio.c */; };
 		D979F7271E2F217400A640E2 /* HTS_engine.c in Sources */ = {isa = PBXBuildFile; fileRef = D979F71C1E2F217400A640E2 /* HTS_engine.c */; };
 		D979F7281E2F217400A640E2 /* HTS_gstream.c in Sources */ = {isa = PBXBuildFile; fileRef = D979F71E1E2F217400A640E2 /* HTS_gstream.c */; };
@@ -53,10 +56,7 @@
 		D979F72C1E2F217400A640E2 /* HTS_pstream.c in Sources */ = {isa = PBXBuildFile; fileRef = D979F7231E2F217400A640E2 /* HTS_pstream.c */; };
 		D979F72D1E2F217400A640E2 /* HTS_sstream.c in Sources */ = {isa = PBXBuildFile; fileRef = D979F7241E2F217400A640E2 /* HTS_sstream.c */; };
 		D979F72E1E2F217400A640E2 /* HTS_vocoder.c in Sources */ = {isa = PBXBuildFile; fileRef = D979F7251E2F217400A640E2 /* HTS_vocoder.c */; };
-		D98C140C1E2F2F590087546A /* open_jtalk_dic_utf_8-1.10 in Resources */ = {isa = PBXBuildFile; fileRef = D98C140B1E2F2F590087546A /* open_jtalk_dic_utf_8-1.10 */; };
 		D99E189F1E285D2300366FB4 /* HTSEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D99E189E1E285D2300366FB4 /* HTSEngine.m */; };
-		D99E18F41E286F1600366FB4 /* htsvoice in Resources */ = {isa = PBXBuildFile; fileRef = D99E18F31E286F1600366FB4 /* htsvoice */; };
-		D99E18F61E28718D00366FB4 /* fknsda01.lab in Resources */ = {isa = PBXBuildFile; fileRef = D99E18F51E28718D00366FB4 /* fknsda01.lab */; };
 		D99E18FC1E28A32600366FB4 /* AudioQueue.c in Sources */ = {isa = PBXBuildFile; fileRef = D99E18FB1E28A32600366FB4 /* AudioQueue.c */; };
 		D9A642D21E2D91FD005C7B5A /* AudioOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A642D11E2D91FD005C7B5A /* AudioOutput.m */; };
 		D9A869AA1E3032A0001C9193 /* AUTHORS in Resources */ = {isa = PBXBuildFile; fileRef = D9A869061E3032A0001C9193 /* AUTHORS */; };
@@ -113,8 +113,6 @@
 		D9F3B55D1A5E318C0053AECE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9F3B55C1A5E318C0053AECE /* Images.xcassets */; };
 		D9F3B5601A5E318C0053AECE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9F3B55E1A5E318C0053AECE /* LaunchScreen.xib */; };
 		D9F3B56C1A5E318C0053AECE /* YANSISTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F3B56B1A5E318C0053AECE /* YANSISTests.m */; };
-		D9F3B5C61A5E31F00053AECE /* morph in Resources */ = {isa = PBXBuildFile; fileRef = D9F3B5A11A5E31F00053AECE /* morph */; };
-		D9F3B5CD1A5E31F00053AECE /* sen in Resources */ = {isa = PBXBuildFile; fileRef = D9F3B5AE1A5E31F00053AECE /* sen */; };
 		D9FA26D51E28A9DA0078A5C5 /* AQPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FA26D41E28A9DA0078A5C5 /* AQPlay.m */; };
 /* End PBXBuildFile section */
 
@@ -210,6 +208,9 @@
 		D96668271E31D6ED0037280C /* Viterbi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Viterbi.m; sourceTree = "<group>"; };
 		D966683E1E31E6D40037280C /* MToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MToken.h; sourceTree = "<group>"; };
 		D966683F1E31E6D40037280C /* MToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MToken.m; sourceTree = "<group>"; };
+		D97871E01E38258D004A0777 /* htsvoice */ = {isa = PBXFileReference; lastKnownFileType = folder; name = htsvoice; path = Asset/htsvoice; sourceTree = "<group>"; };
+		D97871E21E382595004A0777 /* morph */ = {isa = PBXFileReference; lastKnownFileType = folder; name = morph; path = Asset/morph; sourceTree = "<group>"; };
+		D97871E41E3825AA004A0777 /* open_jtalk_dic_utf_8-1.10 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "open_jtalk_dic_utf_8-1.10"; path = "Asset/open_jtalk_dic_utf_8-1.10"; sourceTree = "<group>"; };
 		D979F71B1E2F217400A640E2 /* HTS_audio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HTS_audio.c; sourceTree = "<group>"; };
 		D979F71C1E2F217400A640E2 /* HTS_engine.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HTS_engine.c; sourceTree = "<group>"; };
 		D979F71D1E2F217400A640E2 /* HTS_engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTS_engine.h; sourceTree = "<group>"; };
@@ -221,14 +222,11 @@
 		D979F7231E2F217400A640E2 /* HTS_pstream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HTS_pstream.c; sourceTree = "<group>"; };
 		D979F7241E2F217400A640E2 /* HTS_sstream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HTS_sstream.c; sourceTree = "<group>"; };
 		D979F7251E2F217400A640E2 /* HTS_vocoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HTS_vocoder.c; sourceTree = "<group>"; };
-		D98C140B1E2F2F590087546A /* open_jtalk_dic_utf_8-1.10 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "open_jtalk_dic_utf_8-1.10"; path = "Asset/open_jtalk_dic_utf_8-1.10"; sourceTree = "<group>"; };
 		D9947C191E1E2E7200696796 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		D9947C1A1E1E2E7200696796 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		D99E189D1E285D2300366FB4 /* HTSEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTSEngine.h; sourceTree = "<group>"; };
 		D99E189E1E285D2300366FB4 /* HTSEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTSEngine.m; sourceTree = "<group>"; };
 		D99E18A41E285D8500366FB4 /* AudioQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioQueue.h; sourceTree = "<group>"; };
-		D99E18F31E286F1600366FB4 /* htsvoice */ = {isa = PBXFileReference; lastKnownFileType = folder; name = htsvoice; path = Asset/htsvoice; sourceTree = "<group>"; };
-		D99E18F51E28718D00366FB4 /* fknsda01.lab */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fknsda01.lab; path = Asset/fknsda01.lab; sourceTree = "<group>"; };
 		D99E18FB1E28A32600366FB4 /* AudioQueue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AudioQueue.c; sourceTree = "<group>"; };
 		D9A642D01E2D91FD005C7B5A /* AudioOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioOutput.h; sourceTree = "<group>"; };
 		D9A642D11E2D91FD005C7B5A /* AudioOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioOutput.m; sourceTree = "<group>"; };
@@ -388,8 +386,6 @@
 		D9F3B5651A5E318C0053AECE /* YANSISTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YANSISTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F3B56A1A5E318C0053AECE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9F3B56B1A5E318C0053AECE /* YANSISTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YANSISTests.m; sourceTree = "<group>"; };
-		D9F3B5A11A5E31F00053AECE /* morph */ = {isa = PBXFileReference; lastKnownFileType = folder; name = morph; path = Asset/morph; sourceTree = "<group>"; };
-		D9F3B5AE1A5E31F00053AECE /* sen */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sen; path = Asset/sen; sourceTree = "<group>"; };
 		D9FA26D31E28A9DA0078A5C5 /* AQPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQPlay.h; sourceTree = "<group>"; };
 		D9FA26D41E28A9DA0078A5C5 /* AQPlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQPlay.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -783,10 +779,10 @@
 		D9F3B5431A5E318C0053AECE = {
 			isa = PBXGroup;
 			children = (
+				D94843B31E2CB6F600DE2C5D /* Frameworks */,
+				D9F3B54D1A5E318C0053AECE /* Products */,
 				D9F3B54E1A5E318C0053AECE /* YANSIS */,
 				D9F3B5681A5E318C0053AECE /* YANSISTests */,
-				D9F3B54D1A5E318C0053AECE /* Products */,
-				D94843B31E2CB6F600DE2C5D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -802,45 +798,43 @@
 		D9F3B54E1A5E318C0053AECE /* YANSIS */ = {
 			isa = PBXGroup;
 			children = (
-				D96668001E31D6ED0037280C /* Sen */,
-				D96667D81E31D6400037280C /* EJAdvisor3 */,
-				D9A869051E3032A0001C9193 /* open_jtalk */,
-				D98C140B1E2F2F590087546A /* open_jtalk_dic_utf_8-1.10 */,
-				D979F71A1E2F217400A640E2 /* hts_engine_API */,
+				D97871E41E3825AA004A0777 /* open_jtalk_dic_utf_8-1.10 */,
+				D97871E21E382595004A0777 /* morph */,
+				D97871E01E38258D004A0777 /* htsvoice */,
+				D9F3B5531A5E318C0053AECE /* AppDelegate.h */,
+				D9F3B5541A5E318C0053AECE /* AppDelegate.m */,
+				D9FA26D31E28A9DA0078A5C5 /* AQPlay.h */,
+				D9FA26D41E28A9DA0078A5C5 /* AQPlay.m */,
 				D9A642D01E2D91FD005C7B5A /* AudioOutput.h */,
 				D9A642D11E2D91FD005C7B5A /* AudioOutput.m */,
-				D94843B21E2CB6F500DE2C5D /* YANSIS.entitlements */,
-				D99E18F51E28718D00366FB4 /* fknsda01.lab */,
-				D99E18F31E286F1600366FB4 /* htsvoice */,
+				D99E18FB1E28A32600366FB4 /* AudioQueue.c */,
+				D99E18A41E285D8500366FB4 /* AudioQueue.h */,
 				D96667D51E31CB490037280C /* CMecab.h */,
 				D96667D61E31CB490037280C /* CMecab.m */,
+				D93CD8741E2619B400807342 /* DataAccessor.m */,
+				D96667D81E31D6400037280C /* EJAdvisor3 */,
+				D979F71A1E2F217400A640E2 /* hts_engine_API */,
 				D99E189D1E285D2300366FB4 /* HTSEngine.h */,
 				D99E189E1E285D2300366FB4 /* HTSEngine.m */,
-				D95F91E71E2EFD1C00A0377C /* OpenJTalk.h */,
-				D95F91E81E2EFD1C00A0377C /* OpenJTalk.m */,
+				D9F3B55C1A5E318C0053AECE /* Images.xcassets */,
 				D9F22DF01E3078A000A2346A /* Label.h */,
 				D9F22DF11E3078A000A2346A /* Label.m */,
 				D9A869E21E30502E001C9193 /* LabelItem.h */,
 				D9A869E31E30502E001C9193 /* LabelItem.m */,
-				D93CD8741E2619B400807342 /* DataAccessor.m */,
-				D9FA26D31E28A9DA0078A5C5 /* AQPlay.h */,
-				D9FA26D41E28A9DA0078A5C5 /* AQPlay.m */,
-				D99E18FB1E28A32600366FB4 /* AudioQueue.c */,
-				D99E18A41E285D8500366FB4 /* AudioQueue.h */,
-				D9F3B5A11A5E31F00053AECE /* morph */,
-				D9F3B5AE1A5E31F00053AECE /* sen */,
-				D9F3B5531A5E318C0053AECE /* AppDelegate.h */,
-				D9F3B5541A5E318C0053AECE /* AppDelegate.m */,
+				D9F3B55E1A5E318C0053AECE /* LaunchScreen.xib */,
+				D9F3B5591A5E318C0053AECE /* Main.storyboard */,
+				D9A869051E3032A0001C9193 /* open_jtalk */,
+				D95F91E71E2EFD1C00A0377C /* OpenJTalk.h */,
+				D95F91E81E2EFD1C00A0377C /* OpenJTalk.m */,
+				D96668001E31D6ED0037280C /* Sen */,
+				D9F3B54F1A5E318C0053AECE /* Supporting Files */,
 				D9F3B5561A5E318C0053AECE /* ViewController.h */,
 				D9F3B5571A5E318C0053AECE /* ViewController.m */,
 				D9B972F91E25B63300F9214E /* ViewController2.h */,
 				D9B972FA1E25B63300F9214E /* ViewController2.m */,
-				D91B28A31E35D78800206452 /* ViewController3.m */,
 				D91B28A21E35D78800206452 /* ViewController3.h */,
-				D9F3B5591A5E318C0053AECE /* Main.storyboard */,
-				D9F3B55C1A5E318C0053AECE /* Images.xcassets */,
-				D9F3B55E1A5E318C0053AECE /* LaunchScreen.xib */,
-				D9F3B54F1A5E318C0053AECE /* Supporting Files */,
+				D91B28A31E35D78800206452 /* ViewController3.m */,
+				D94843B21E2CB6F500DE2C5D /* YANSIS.entitlements */,
 			);
 			path = YANSIS;
 			sourceTree = "<group>";
@@ -963,18 +957,16 @@
 				D9A869D61E3032A0001C9193 /* NEWS in Resources */,
 				D9A869AA1E3032A0001C9193 /* AUTHORS in Resources */,
 				D9F3B55B1A5E318C0053AECE /* Main.storyboard in Resources */,
+				D97871E31E382595004A0777 /* morph in Resources */,
 				D9F3B5601A5E318C0053AECE /* LaunchScreen.xib in Resources */,
-				D99E18F61E28718D00366FB4 /* fknsda01.lab in Resources */,
 				D9F3B55D1A5E318C0053AECE /* Images.xcassets in Resources */,
+				D97871E51E3825AA004A0777 /* open_jtalk_dic_utf_8-1.10 in Resources */,
+				D97871E11E38258D004A0777 /* htsvoice in Resources */,
 				D9A869AC1E3032A0001C9193 /* ChangeLog in Resources */,
 				D9A869AE1E3032A0001C9193 /* INSTALL in Resources */,
-				D9F3B5C61A5E31F00053AECE /* morph in Resources */,
 				D9A869AD1E3032A0001C9193 /* COPYING in Resources */,
 				D9A869B21E3032A0001C9193 /* COPYING in Resources */,
-				D98C140C1E2F2F590087546A /* open_jtalk_dic_utf_8-1.10 in Resources */,
 				D9A869E01E3032A0001C9193 /* README in Resources */,
-				D9F3B5CD1A5E31F00053AECE /* sen in Resources */,
-				D99E18F41E286F1600366FB4 /* htsvoice in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

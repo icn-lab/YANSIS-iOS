@@ -48,7 +48,7 @@
     recommend = [[Recommendation alloc] initWithFilename:rcmdfile encode:NSShiftJISStringEncoding];
     scoreEstimator = [[ScoreEstimator alloc] initWithFile:weightFile];
     suppress = [[NSArray alloc] initWithObjects:@"[　\\s\\n\\t]+", nil];
-//    suppress = [[NSArray alloc] initWithObjects:@"　", @"\\s+", @"\\n", @"\\t", nil];
+    //    suppress = [[NSArray alloc] initWithObjects:@"　", @"\\s+", @"\\n", @"\\t", nil];
     
 }
 
@@ -59,7 +59,7 @@
 -(Boolean)isSentenceEnd:(WordProperty *)w{
     if([[w getPOS] compare:@"記号-句点"] == NSOrderedSame)
         return true;
-
+    
     if([[w toString] compare:@"？"] == NSOrderedSame)
         return true;
     
@@ -75,7 +75,7 @@
     [bpos addObject:[[NSNumber alloc] initWithInt:0]];
     
     for(int i=0;i < [w count];i++){
-  //      NSLog(@"w:%@ %@", [w[i] toString], [w[i] getPOS]);
+        //      NSLog(@"w:%@ %@", [w[i] toString], [w[i] getPOS]);
         if([self isSentenceEnd:w[i]] && i < [w count]-1){
             [bpos addObject:[[NSNumber alloc] initWithInt:i+1]];
         }
@@ -97,10 +97,12 @@
 
 -(NSString *)suppressString:(NSString *)s{
     for(NSString *str in suppress){
-        s = [s stringByReplacingOccurrencesOfString:str
-                                        withString:@""
-                                           options:NSRegularExpressionSearch
-                                             range:NSMakeRange(0, [s length])];
+        @autoreleasepool {
+            s = [s stringByReplacingOccurrencesOfString:str
+                                             withString:@""
+                                                options:NSRegularExpressionSearch
+                                                  range:NSMakeRange(0, [s length])];
+        }
     }
     
     return s;
@@ -131,7 +133,7 @@
 
 -(double)estimateScore:(NSArray *)s{
     double score = [scoreEstimator estimateScore:s];
-  //  NSLog(@"score:%.2f", score);
+    //  NSLog(@"score:%.2f", score);
     score = score * 100.0 / 2.0;
     if(score > 100.0)
         score = 100.0;

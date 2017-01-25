@@ -98,12 +98,12 @@ static OSStatus outputCallback(void                         *inRefCon,
     
     //
     [audioSession setPreferredSampleRate:mSampleRate error:nil];
-   /*
-    //バッファの設定 → 10[ms]ごとにcallbackが呼ばれる
-    duration = 0.01; // 10[ms]
-    NSTimeInterval bufferDuration = duration; // 10[ms]
+   
+    //バッファの設定 → duration[s]ごとにcallbackが呼ばれる
+    duration = 0.010; // 10[ms]
+    NSTimeInterval bufferDuration = duration;
     [audioSession setPreferredIOBufferDuration:bufferDuration error:nil];
-*/
+
     //AVFoundation利用開始
     [audioSession setActive:YES error:nil];
     
@@ -184,7 +184,7 @@ static OSStatus outputCallback(void                         *inRefCon,
 
 - (void)waitPlayEnd{
     while(_mPlaying == YES){
-        usleep(1000);
+        usleep(100);
     }
 }
 
