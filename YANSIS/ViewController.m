@@ -124,7 +124,7 @@ NSString *placeHolderText = @"テキストを入力してください";
     
     [self setSynthesisButtonState:NO];
     [self.synthesisButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
-
+    
 }
 
 -(void)textViewDidBeginEditing:(UITextView *)textView{
@@ -262,25 +262,23 @@ NSString *placeHolderText = @"テキストを入力してください";
 - (IBAction)synthesis:(UIButton *)sender {
     ViewController3 *vc3 = [self.storyboard instantiateViewControllerWithIdentifier:@"indicatorView"];
     /*
-    [indicatorView startAnimating];
-    indicatorView.hidden = NO;
-    indicateText.hidden = NO;
-    */
+     [indicatorView startAnimating];
+     indicatorView.hidden = NO;
+     indicateText.hidden = NO;
+     */
     NSLog(@"text:%@", self.textInput.text);
-  
+    
     dispatch_group_async(group, globalQueue, ^{
         [openJTalk synthesizeFromFeatureWithRate:feature moraRate:speechRate];
     });
     
     [self.navigationController pushViewController:vc3 animated:NO];
     
-    dispatch_group_notify(group, globalQueue, ^{
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         [self.navigationController popViewControllerAnimated:NO];
-        [self.navigationController setNavigationBarHidden:NO];
-        /*
-        indicateText.hidden  = YES;
-        indicatorView.hidden = YES;*/
-        
+        //[self.navigationController setNavigationBarHidden:NO];
+        //indicateText.hidden  = YES;
+        //indicatorView.hidden = YES;
     });
 }
 

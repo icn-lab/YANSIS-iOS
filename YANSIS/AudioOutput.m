@@ -184,7 +184,7 @@ static OSStatus outputCallback(void                         *inRefCon,
 
 - (void)waitPlayEnd{
     while(_mPlaying == YES){
-        usleep(100);
+        usleep(100000);
     }
 }
 

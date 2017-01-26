@@ -69,7 +69,6 @@ const int kAudioBufferSize = 48000*300;
     if(enableAudio == NO)
         return;
     
-    NSLog(@"speak!!");
     [audioOutput play];
     [audioOutput waitPlayEnd];
     [audioOutput stop];
