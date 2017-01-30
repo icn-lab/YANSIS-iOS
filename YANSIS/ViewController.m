@@ -427,14 +427,19 @@ NSString *placeHolderText = @"テキストを入力してください";
     NSMutableAttributedString *tmpStr = [[NSMutableAttributedString alloc] init];
     
     for(int i=0;i < [s count];i++){
-        //        NSLog(@"basic:%@", [s[i] getBasicString]);
-        //        NSLog(@"POS:%@", [s[i] getPOS]);
+        //NSLog(@"basic:%@", [s[i] getBasicString]);
+        //NSLog(@"POS:%@", [s[i] getPOS]);
         
         if(i > 0 && [s[i] is_content_word]){
-            //            NSLog(@"content");
-            if([[s[i] getBasicString] compare:@"する"] != NSOrderedSame ||
-               [[s[i-1] getPOS] compare:@"名詞-サ変接続"] != NSOrderedSame){
-                //                NSLog(@"Add:");
+            //NSLog(@"content");
+            if([[s[i] getBasicString] compare:@"する"] == NSOrderedSame
+               && [[s[i-1] getPOS] compare:@"名詞-サ変接続"] == NSOrderedSame){
+            }
+            else if([[s[i] getPOS] compare:@"名詞-数"] == NSOrderedSame
+                 && [[s[i-1] getPOS] compare:@"名詞-数"] == NSOrderedSame){
+            }
+            else{
+                //NSLog(@"Add:");
                 [bArray addObject:tmpStr];
                 tmpStr = [[NSMutableAttributedString alloc] init];
             }
@@ -460,7 +465,7 @@ NSString *placeHolderText = @"テキストを入力してください";
     //    NSLog(@"bArray:%d", (int)[bArray count]);
     
     NSMutableAttributedString *evaluationPoints = [[NSMutableAttributedString alloc] init];
-    NSMutableAttributedString *space = [[NSMutableAttributedString alloc] initWithString:@"  "];
+    NSMutableAttributedString *space = [[NSMutableAttributedString alloc] initWithString:@"   "];
     [evaluationPoints appendAttributedString:bArray[0]];
     
     for(int i=1;i < [bArray count];i++){

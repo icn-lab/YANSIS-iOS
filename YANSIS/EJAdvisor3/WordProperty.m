@@ -59,7 +59,7 @@
         if([posElem count] > 1 &&
            ([posElem[1] compare:@"非自立"] == NSOrderedSame ||
             [posElem[1] compare:@"接尾"] == NSOrderedSame)){
- //              NSLog(@"poselem:%@", posElem[1]);
+      //              NSLog(@"poselem:%@", posElem[1]);
             return false;
            }
         else
